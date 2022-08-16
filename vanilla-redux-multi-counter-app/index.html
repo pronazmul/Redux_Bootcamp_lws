@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Counter Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- import redux from cdn -->
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div class="w-screen h-screen p-10 bg-gray-100 text-slate-700">
+      <!-- header -->
+      <h1 class="max-w-md mx-auto text-center text-2xl font-bold">
+        Multiple Counter Application
+      </h1>
+
+      <!-- counters -->
+      <div id="counter-container" class="mx-auto max-w-md mt-10">
+        <!-- counter Card Will be Go Through Here -->
+      </div>
+      <!-- Add Counter and Reset Card -->
+      <div class="mx-auto max-w-md flex justify-end space-x-3 mt-5">
+        <button
+          id="add-counter"
+          class="bg-indigo-400 text-white px-2 py-2 rounded shadow"
+        >
+          <i class="fas fa-add"></i>
+          Add Counter
+        </button>
+        <button
+          id="reset"
+          class="bg-red-400 text-white px-2 py-2 rounded shadow"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
