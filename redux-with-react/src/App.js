@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux'
 import store from './components/redux/store'
-import Counter from './components/Counter'
+import Counter from './components/Hook_Counter'
 
 function App() {
   return (
