@@ -3,6 +3,7 @@
 # dependencies
 /redux-with-react/node_modules
 /redux-shopping-cart/node_modules
+/redux-todo-app/node_modules
 
 
 # testing

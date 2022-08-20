@@ -1,9 +1,3 @@
-import {
-  CART_DECREASE_QUANTITY,
-  CART_ERROR,
-  CART_INCREASE_QUANTITY,
-} from './../cart/actionTypes'
-
 const productQuantityChecker = (store) => (next) => (action) => {
   let {
     products,
@@ -14,18 +8,18 @@ const productQuantityChecker = (store) => (next) => (action) => {
   let cartQuantity = cartItems.find((v) => v.id === productId).quantity
 
   switch (action.type) {
-    case CART_INCREASE_QUANTITY:
+    case 'CART_INCREASE_QUANTITY':
       if (productQuantity > 0) {
         next(action)
       } else {
-        next({ type: CART_ERROR, payload: 'Product Stock Out' })
+        next({ type: 'CART_ERROR', payload: 'Product Stock Out' })
       }
       break
-    case CART_DECREASE_QUANTITY:
+    case 'CART_DECREASE_QUANTITY':
       if (cartQuantity > 0) {
         next(action)
       } else {
-        next({ type: CART_ERROR, payload: "Quantity Can't be less than 0" })
+        next({ type: 'CART_ERROR', payload: "Quantity Can't be less than 0" })
       }
       break
     default:
