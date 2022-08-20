@@ -1,7 +1,7 @@
 import {
   ADDED,
-  ALL_COMPLITED,
-  CLEAR_COMPLITED,
+  ALL_COMPLETED,
+  CLEAR_COMPLETED,
   COLOR_SELECTED,
   DELETED,
   TOGGLED,
@@ -34,7 +34,7 @@ export function toggled(todoId) {
 /**
  * @desc "Select ToDo Color"
  * @param {Number} todoId
- * @param {string} todoColor
+ * @param {String} todoColor
  * @return {type:String, payload:{id, color}}
  */
 export function colorSelected(id, color) {
@@ -54,27 +54,27 @@ export function colorSelected(id, color) {
  */
 export function deleted(id) {
   return {
-    action: DELETED,
+    type: DELETED,
     payload: id,
   }
 }
 
 /**
- * @desc "All Mark As Complited"
+ * @desc "All Mark As COMPLETED"
  * @return {type:String}
  */
-export function allComplited() {
+export function allCOMPLETED() {
   return {
-    type: ALL_COMPLITED,
+    type: ALL_COMPLETED,
   }
 }
 
 /**
- * @desc "Clear Complited Todos"
+ * @desc "Clear COMPLETED Todos"
  * @return {type:String}
  */
-export function clearComplited() {
+export function clearCOMPLETED() {
   return {
-    type: CLEAR_COMPLITED,
+    type: CLEAR_COMPLETED,
   }
 }

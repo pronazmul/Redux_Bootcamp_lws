@@ -3,8 +3,8 @@ import {
   ADDED,
   COLOR_SELECTED,
   DELETED,
-  ALL_COMPLITED,
-  CLEAR_COMPLITED,
+  ALL_COMPLETED,
+  CLEAR_COMPLETED,
 } from './actiontypes'
 import initialState from './initialState'
 
@@ -18,14 +18,14 @@ const reducer = (state = initialState, action) => {
     case ADDED:
       return [
         ...state,
-        { id: nextId(state), text: action.payload, complited: false },
+        { id: nextId(state), text: action.payload, completed: false },
       ]
 
     case TOGGLED:
       return state.map((todo) =>
         todo.id !== action.payload
           ? todo
-          : { ...todo, complited: !todo.complited }
+          : { ...todo, completed: !todo.completed }
       )
 
     case COLOR_SELECTED:
@@ -35,11 +35,11 @@ const reducer = (state = initialState, action) => {
     case DELETED:
       return state.filter((todo) => todo.id !== action.payload)
 
-    case ALL_COMPLITED:
-      return state.map((todo) => ({ ...todo, complited: true }))
+    case ALL_COMPLETED:
+      return state.map((todo) => ({ ...todo, completed: true }))
 
-    case CLEAR_COMPLITED:
-      return state.filter((todo) => !todo.complited)
+    case CLEAR_COMPLETED:
+      return state.filter((todo) => !todo.completed)
 
     default:
       return state
