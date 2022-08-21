@@ -16,13 +16,10 @@ function takCounter(taskLength) {
 const Footer = () => {
   let { todos, filters } = useSelector((state) => state)
 
-  console.table(todos)
   let remainingTaks = todos.filter((todo) => !todo.completed).length
-
   let dispatch = useDispatch()
 
   function statusChangeHandler(status) {
-    console.log({ status })
     dispatch(statusChange(status))
   }
 
