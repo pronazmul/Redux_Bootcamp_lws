@@ -63,7 +63,7 @@ export function deleted(id) {
  * @desc "All Mark As COMPLETED"
  * @return {type:String}
  */
-export function allCOMPLETED() {
+export function allCompleted() {
   return {
     type: ALL_COMPLETED,
   }
@@ -73,7 +73,7 @@ export function allCOMPLETED() {
  * @desc "Clear COMPLETED Todos"
  * @return {type:String}
  */
-export function clearCOMPLETED() {
+export function clearCompleted() {
   return {
     type: CLEAR_COMPLETED,
   }
