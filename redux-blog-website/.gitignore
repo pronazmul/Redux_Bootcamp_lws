@@ -1,11 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/redux-with-react/node_modules
-/redux-shopping-cart/node_modules
-/redux-todo-app/node_modules
-/redux-blog-website/node_modules
-
+/node_modules
+/.pnp
+.pnp.js
 
 # testing
 /coverage
