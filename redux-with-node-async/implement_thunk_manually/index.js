@@ -1,5 +1,6 @@
 const { legacy_createStore, applyMiddleware } = require('redux')
-const { asyncFatcherMiddleware, delayMiddleware } = require('./middlewares')
+const { fetchTodos } = require('./functions')
+const { asyncFatcherMiddleware } = require('./middlewares')
 
 // Inital State
 let initalState = {
@@ -23,7 +24,7 @@ const todoReducer = (state = initalState, action) => {
 //Create Store
 const store = legacy_createStore(
   todoReducer,
-  applyMiddleware(delayMiddleware, asyncFatcherMiddleware)
+  applyMiddleware(asyncFatcherMiddleware)
 )
 
 //Subscribe to Todo
@@ -32,7 +33,4 @@ store.subscribe(() => {
 })
 
 //Dispatch to Reducer:
-
-store.dispatch({
-  type: 'todo/fetchTodo',
-})
+store.dispatch(fetchTodos)
