@@ -5,7 +5,7 @@
 /redux-shopping-cart/node_modules
 /redux-todo-app/node_modules
 /redux-blog-website/node_modules
-
+/redux-with-node-async/node_modules
 
 # testing
 /coverage
