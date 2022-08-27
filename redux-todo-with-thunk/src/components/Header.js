@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import NoteImage from '../assets/images/notes.png'
 import DoubleTick from '../assets/images/double-tick.png'
 import { useDispatch } from 'react-redux'
-import { added, allCompleted, clearCompleted } from './redux/todo/actions'
+import { allCompleted, clearCompleted } from './redux/todo/actions'
 import addTodoAsync from './redux/todo/thunk/addTodo'
 
 const Header = () => {
@@ -54,10 +54,10 @@ const Header = () => {
           className='flex space-x-1 cursor-pointer'
         >
           <img className='w-4 h-4' src={DoubleTick} alt='Complete' />
-          <span>Complete All Tasks</span>
+          <span>Incompleted Tasks</span>
         </li>
         <li onClick={clearCompletedHandler} className='cursor-pointer'>
-          Clear completed
+          Complete All Tasks
         </li>
       </ul>
     </div>

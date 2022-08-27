@@ -4,18 +4,24 @@ import Navbar from './components/Navbar'
 import store from './components/redux/store'
 import ToDoList from './components/ToDoList'
 import Footer from './components/Footer'
+import CompletedTodoList from './components/CompletedTodoList'
 
 function App() {
   return (
     <Provider store={store}>
       <div className='grid place-items-center bg-blue-100 h-screen px-6 font-sans'>
         <Navbar />
-        <div className='w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white'>
-          <Header />
-          <hr className='mt-4' />
-          <ToDoList />
-          <hr className='mt-4' />
-          <Footer />
+        <div className='space-y-3'>
+          <div className='w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white'>
+            <Header />
+            <hr className='mt-4' />
+            <ToDoList />
+            <hr className='mt-4' />
+            <Footer />
+          </div>
+          <div className='w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white'>
+            <CompletedTodoList />
+          </div>
         </div>
       </div>
     </Provider>
