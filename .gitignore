@@ -8,6 +8,8 @@
 /redux-todo-static/node_modules
 /redux-todo-with-thunk/node_modules
 /toolkit-with-node/node_modules
+/toolkit-yt-project/client/node_modules
+/toolkit-yt-project/server/node_modules
 
 # testing
 /coverage
