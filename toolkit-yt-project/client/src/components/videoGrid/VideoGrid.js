@@ -29,7 +29,7 @@ const VideoGrid = () => {
             ))}
           </div>
         ) : (
-          <Error />
+          <Error error='No videos found' />
         )}
       </section>
     </section>

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Player = ({ title = null, link = null }) => {
-  console.log({ title, link })
+const Player = ({ title, link }) => {
   return (
     <iframe
       width='100%'
