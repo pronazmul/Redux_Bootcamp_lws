@@ -1,15 +1,16 @@
 import React from 'react'
 
-const Player = () => {
+const Player = ({ title = null, link = null }) => {
+  console.log({ title, link })
   return (
     <iframe
       width='100%'
       className='aspect-video'
-      src='https://www.youtube-nocookie.com/embed/6O4s7v28nlw'
-      title='Some video title'
+      src={link}
+      title={title}
       frameBorder=''
       allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-      allowFullscreen
+      allowFullScreen
     ></iframe>
   )
 }
