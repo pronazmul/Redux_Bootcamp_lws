@@ -6,14 +6,15 @@ import Loading from '../ui/Loading'
 import Error from '../ui/Error'
 
 const VideoGrid = () => {
-  let dispatch = useDispatch()
-  let { videos, isLoading, isError, error } = useSelector(
+  const dispatch = useDispatch()
+  const { videos, isLoading, isError, error } = useSelector(
     (state) => state.videos
   )
+  const { tags, search } = useSelector((state) => state.filter)
 
   React.useEffect(() => {
-    dispatch(fetchVideos())
-  }, [dispatch])
+    dispatch(fetchVideos({ tags, search }))
+  }, [dispatch, tags, search])
 
   return (
     <section className='pt-12'>

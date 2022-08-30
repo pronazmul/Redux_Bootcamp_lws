@@ -16,8 +16,11 @@ const filterSlice = createSlice({
       let index = state.tags.indexOf(action.payload)
       if (index > -1) state.tags.splice(index, 1)
     },
+    searched: (state, action) => {
+      state.search = action.payload
+    },
   },
 })
 
 export default filterSlice.reducer
-export const { tagSelected, tagRemoved } = filterSlice.actions
+export const { tagSelected, tagRemoved, searched } = filterSlice.actions
