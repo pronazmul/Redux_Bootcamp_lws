@@ -4,6 +4,7 @@ import videoReducer from '../features/video/videoSlice'
 import relatedVideosReducer from '../features/relatedVideos/relatedVideosSlice'
 import tagsReducer from '../features/tags/tagsSlice'
 import filterReducer from '../features/filter/filterSlice'
+import paginationReducer from '../features/pagination/paginationSlice'
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     video: videoReducer,
     relatedVideos: relatedVideosReducer,
     filter: filterReducer,
+    pagination: paginationReducer,
   },
 })

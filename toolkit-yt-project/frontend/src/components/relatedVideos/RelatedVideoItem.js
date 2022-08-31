@@ -1,8 +1,24 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { authorSelected } from '../../features/filter/filterSlice'
+import { useMatch, useNavigate } from 'react-router-dom'
 
 const RelatedVideoItem = ({ video }) => {
   const { id, thumbnail, title, views, duration, author, date } = video
+
+  const dispatch = useDispatch()
+  const match = useMatch('/')
+  const navigate = useNavigate()
+
+  function handleSelectAuthor(author) {
+    dispatch(authorSelected(author))
+
+    if (!match) {
+      navigate('/')
+    }
+  }
+
   return (
     <div className='w-full flex flex-row gap-2 mb-4'>
       <div className='relative w-[168px] h-[94px] flex-none duration-300 hover:scale-[1.03]'>
@@ -18,13 +34,12 @@ const RelatedVideoItem = ({ video }) => {
         <Link to={`/videos/${id}`}>
           <p className='text-slate-900 text-sm font-semibold'>{title}</p>
         </Link>
-        <Link
-          to={`/videos/${id}`}
-          className='text-gray-400 text-xs mt-2 hover:text-gray-600'
+        <p
+          onClick={() => handleSelectAuthor(author)}
+          className='cursor-pointer text-gray-400 text-xs mt-2 hover:text-gray-600'
         >
-          {' '}
           {author}
-        </Link>
+        </p>
         <p className='text-gray-400 text-xs mt-1'>
           {views} views . {date}
         </p>

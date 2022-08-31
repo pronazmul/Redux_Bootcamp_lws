@@ -10,8 +10,8 @@ const initialState = {
 
 export const fetchVideos = createAsyncThunk(
   'videos/fetchVideos',
-  async ({ tags, search }) => {
-    const videos = await getVideos({ tags, search })
+  async ({ tags, search, author, page, entities }) => {
+    const videos = await getVideos({ tags, search, author, page, entities })
     return videos
   }
 )
@@ -27,8 +27,9 @@ const videosSlice = createSlice({
       })
       .addCase(fetchVideos.fulfilled, (state, action) => {
         state.isLoading = false
-        state.videos = action.payload
+        state.videos = action.payload.data
       })
+
       .addCase(fetchVideos.rejected, (state, action) => {
         state.isLoading = false
         state.videos = []

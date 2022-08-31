@@ -10,11 +10,12 @@ const VideoGrid = () => {
   const { videos, isLoading, isError, error } = useSelector(
     (state) => state.videos
   )
-  const { tags, search } = useSelector((state) => state.filter)
+  const { tags, search, author } = useSelector((state) => state.filter)
+  const { page, entities } = useSelector((state) => state.pagination)
 
   React.useEffect(() => {
-    dispatch(fetchVideos({ tags, search }))
-  }, [dispatch, tags, search])
+    dispatch(fetchVideos({ tags, search, author, page, entities }))
+  }, [dispatch, tags, author, search, page, entities])
 
   return (
     <section className='pt-12'>
