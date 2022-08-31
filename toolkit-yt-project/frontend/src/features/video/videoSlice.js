@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { likeVideo, unlikeVideo } from '../likeUnlike/likeUnlikeAPI'
 import { getVideo } from './videoAPI'
 
 const initialState = {
@@ -31,6 +32,12 @@ const videoSlice = createSlice({
         state.video = {}
         state.isError = true
         state.error = action.error?.message
+      })
+      .addCase(likeVideo.fulfilled, (state, action) => {
+        state.video.likes = action.payload
+      })
+      .addCase(unlikeVideo.fulfilled, (state, action) => {
+        state.video.unlikes = action.payload
       })
   },
 })

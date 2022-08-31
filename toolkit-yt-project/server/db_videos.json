@@ -11,14 +11,18 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/6O4s7v28nlw",
       "thumbnail": "https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg",
-      "tags": ["javascript", "react", "tips"],
-      "likes": 0,
-      "unlikes": 0
+      "tags": [
+        "javascript",
+        "react",
+        "tips"
+      ],
+      "likes": 2,
+      "unlikes": 4
     },
     {
       "id": 2,
       "title": "Create A Virtual Talking Friend with Just 4 Lines of Python",
-      "description": " For new #python developer, pyttsx3 is a cool little library to convert text to speech. This simple #tutorial will help to create something simple and fun.",
+      "description": " For new python developer, pyttsx3 is a cool little library to convert text to speech. This simple tutorial will help to create something simple and fun.",
       "author": "Programming Hero",
       "avatar": "https://avatars.githubusercontent.com/u/53802153?v=4",
       "date": " Apr 29, 2020",
@@ -26,11 +30,13 @@
       "views": "22.7k",
       "link": "https://www.youtube.com/embed/nbX4MBzB_rg",
       "thumbnail": "https://i3.ytimg.com/vi/nbX4MBzB_rg/maxresdefault.jpg",
-      "tags": ["python", "automation"],
-      "likes": 0,
-      "unlikes": 0
+      "tags": [
+        "python",
+        "automation"
+      ],
+      "likes": 22,
+      "unlikes": 12
     },
-
     {
       "id": 3,
       "title": "React JS Crash Course",
@@ -42,9 +48,12 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/w7ejDZ8SWv8",
       "thumbnail": "https://i3.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
-      "tags": ["react", "javascript"],
-      "likes": 0,
-      "unlikes": 0
+      "tags": [
+        "react",
+        "javascript"
+      ],
+      "likes": 7,
+      "unlikes": 7
     },
     {
       "id": 4,
@@ -57,9 +66,12 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/N-U6AVcIPy4",
       "thumbnail": "https://i3.ytimg.com/vi/N-U6AVcIPy4/maxresdefault.jpg",
-      "tags": ["vscode", "tips"],
-      "likes": 0,
-      "unlikes": 0
+      "tags": [
+        "vscode",
+        "tips"
+      ],
+      "likes": 2,
+      "unlikes": 2
     },
     {
       "id": 5,
@@ -72,11 +84,13 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/pQeFxdT3FGY",
       "thumbnail": "https://i3.ytimg.com/vi/pQeFxdT3FGY/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
-
     {
       "id": 6,
       "title": " Static Blog With Next.js and Markdown",
@@ -88,7 +102,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/MrjeefD8sac",
       "thumbnail": "https://i3.ytimg.com/vi/MrjeefD8sac/maxresdefault.jpg",
-      "tags": ["nextjs", "javascript"],
+      "tags": [
+        "nextjs",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -103,11 +120,13 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/4M7D3O2XX4o",
       "thumbnail": "https://i3.ytimg.com/vi/4M7D3O2XX4o/maxresdefault.jpg",
-      "tags": ["tailwind", "css"],
+      "tags": [
+        "tailwind",
+        "css"
+      ],
       "likes": 0,
       "unlikes": 0
     },
-
     {
       "id": 8,
       "title": "Don't Buy Scanner! Build your own smart scanner using 25 lines of python || opencv || Python Project",
@@ -119,7 +138,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/MAwOPyOztDs",
       "thumbnail": "https://i3.ytimg.com/vi/MAwOPyOztDs/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -134,11 +156,14 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/dD9O8DnIBj4",
       "thumbnail": "https://i3.ytimg.com/vi/dD9O8DnIBj4/maxresdefault.jpg",
-      "tags": ["debounce", "javascript", "tips"],
+      "tags": [
+        "debounce",
+        "javascript",
+        "tips"
+      ],
       "likes": 0,
       "unlikes": 0
     },
-
     {
       "id": 10,
       "title": "Next.js Crash Course",
@@ -150,7 +175,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/mTz0GXj8NN0",
       "thumbnail": "https://i3.ytimg.com/vi/mTz0GXj8NN0/maxresdefault.jpg",
-      "tags": ["nextjs", "javascript"],
+      "tags": [
+        "nextjs",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -165,11 +193,14 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/4tV1Mfi4fMA",
       "thumbnail": "https://i3.ytimg.com/vi/4tV1Mfi4fMA/maxresdefault.jpg",
-      "tags": ["sass", "css", "ui"],
+      "tags": [
+        "sass",
+        "css",
+        "ui"
+      ],
       "likes": 0,
       "unlikes": 0
     },
-
     {
       "id": 12,
       "title": "Don't Buy Alexa! Build Your Own. Create a Virtual Assistant with Python | Python Project | Jarvis AI",
@@ -181,7 +212,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/AWvsXxDtEkU",
       "thumbnail": "https://i3.ytimg.com/vi/AWvsXxDtEkU/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -196,7 +230,11 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/34tjWL9wi4g",
       "thumbnail": "https://i3.ytimg.com/vi/34tjWL9wi4g/maxresdefault.jpg",
-      "tags": ["react", "router", "javascript"],
+      "tags": [
+        "react",
+        "router",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -211,7 +249,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/wECc7RPAr7s",
       "thumbnail": "https://i3.ytimg.com/vi/wECc7RPAr7s/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -226,11 +267,14 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/smDa6hoxLKI",
       "thumbnail": "https://i3.ytimg.com/vi/smDa6hoxLKI/maxresdefault.jpg",
-      "tags": ["tailwind", "css", "ui"],
+      "tags": [
+        "tailwind",
+        "css",
+        "ui"
+      ],
       "likes": 0,
       "unlikes": 0
     },
-
     {
       "id": 16,
       "title": "JavaScript Crash Course For Beginners",
@@ -242,7 +286,9 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/hdI2bqOjy3c",
       "thumbnail": "https://i3.ytimg.com/vi/hdI2bqOjy3c/maxresdefault.jpg",
-      "tags": ["javascript"],
+      "tags": [
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     }
@@ -268,12 +314,10 @@
       "id": 5,
       "title": "tailwind"
     },
-
     {
       "id": 6,
       "title": "nextjs"
     },
-
     {
       "id": 7,
       "title": "css"
