@@ -1,13 +1,18 @@
-const store = require('./toolkit/app/store')
-const { counterActions } = require('./toolkit/features/counter/counterSlice')
-console.log({ initial: store.getState() })
+const { dispatch, subscribe } = require('./toolkit/app/store')
+const { fetchSinglePost } = require('./toolkit/features/post/postSlice')
+const {
+  fetchRelatedPosts,
+} = require('./toolkit/features/relatedPosts/relatedPostsSlice')
 
-//Subscribed
-store.subscribe(() => {
-  console.log({ suscribed: store.getState() })
-})
+//Subscribe to Store
+// subscribe(()=>console.log())
 
-store.dispatch(counterActions.increment())
-store.dispatch(counterActions.increment())
-store.dispatch(counterActions.increment())
-store.dispatch(counterActions.decrement())
+//Dispatch Actions
+const actionsDispatch = async () => {
+  let {
+    payload: { title },
+  } = await dispatch(fetchSinglePost())
+  let searchQuery = title.split(' ').filter(Boolean).join('&title_like=')
+  await dispatch(fetchRelatedPosts(searchQuery))
+}
+actionsDispatch()

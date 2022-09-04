@@ -10,6 +10,8 @@
 /toolkit-with-node/node_modules
 /toolkit-yt-project/frontend/node_modules
 /toolkit-yt-project/server/node_modules
+/redux-dynamic-todo-thunk/node_modules
+/redux-expence-tracker/node_modules
 
 # testing
 /coverage
