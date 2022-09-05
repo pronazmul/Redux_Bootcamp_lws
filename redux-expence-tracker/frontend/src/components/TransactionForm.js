@@ -5,9 +5,7 @@ import { addTransaction } from './../features/transaction/transactionSlice'
 
 const TransactionForm = () => {
   const dispatch = useDispatch()
-  const { isLoading, isError, error } = useSelector(
-    (state) => state.transaction
-  )
+  const { isLoading } = useSelector((state) => state.transaction)
   const fromik = useFormik({
     initialValues: {
       name: '',
@@ -38,7 +36,6 @@ const TransactionForm = () => {
             required
           />
         </div>
-
         <div className='form-group radio'>
           <label>Type</label>
           <div className='radio_group'>
@@ -69,7 +66,6 @@ const TransactionForm = () => {
             </label>
           </div>
         </div>
-
         <div className='form-group'>
           <label>Amount</label>
           <input
@@ -81,12 +77,11 @@ const TransactionForm = () => {
             required
           />
         </div>
-
-        <button type='submit' className='btn'>
+        <button disabled={isLoading} type='submit' className='btn'>
           Add Transaction
         </button>
-        <button className='btn cancel_edit'>Cancel Edit</button>
       </form>
+      <button className='btn cancel_edit'>Cancel Edit</button>
     </div>
   )
 }

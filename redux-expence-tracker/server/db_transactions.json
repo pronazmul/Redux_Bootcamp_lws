@@ -1,3 +1,22 @@
 {
-  "transactions": []
+  "transactions": [
+    {
+      "name": "Get Salary",
+      "type": "income",
+      "amount": 20000,
+      "id": 1
+    },
+    {
+      "name": "Basa Coast",
+      "type": "expense",
+      "amount": 200,
+      "id": 2
+    },
+    {
+      "name": "Get Project Money",
+      "type": "income",
+      "amount": 2000,
+      "id": 3
+    }
+  ]
 }
