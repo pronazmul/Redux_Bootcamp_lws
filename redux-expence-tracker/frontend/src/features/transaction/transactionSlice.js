@@ -17,8 +17,8 @@ const initialState = {
 
 export const fetchTransactions = createAsyncThunk(
   'transaction/fetchTransaction',
-  async () => {
-    const transactions = await getTransactionsAPI()
+  async (limit) => {
+    const transactions = await getTransactionsAPI(limit)
     return transactions
   }
 )
@@ -85,7 +85,7 @@ const transactionSlice = createSlice({
       .addCase(addTransaction.fulfilled, (state, action) => {
         state.isError = false
         state.isLoading = false
-        state.transactions.push(action.payload)
+        state.transactions.unshift(action.payload)
       })
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false

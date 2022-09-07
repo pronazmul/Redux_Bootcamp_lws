@@ -1,7 +1,9 @@
 import axios from './../../utils/axios'
 
-export const getTransactionsAPI = async () => {
-  const response = await axios.get('/transactions')
+export const getTransactionsAPI = async (limit) => {
+  const response = await axios.get(
+    `/transactions?_sort=id&_order=desc&_limit=${limit}`
+  )
   return response.data
 }
 

@@ -1,28 +1,40 @@
 {
   "transactions": [
     {
-      "name": "Salary From Scan IT",
-      "type": "income",
-      "amount": 2000,
-      "id": 1
-    },
-    {
       "name": "family coast",
       "type": "expense",
       "amount": 200,
       "id": 2
     },
     {
-      "name": "another",
-      "type": "expense",
-      "amount": 3233,
-      "id": 3
-    },
-    {
       "name": "Force Salary",
       "type": "income",
       "amount": 20000,
       "id": 4
+    },
+    {
+      "name": "freelance",
+      "type": "income",
+      "amount": 20,
+      "id": 5
+    },
+    {
+      "name": "utilities",
+      "type": "expense",
+      "amount": 23,
+      "id": 6
+    },
+    {
+      "name": "another",
+      "type": "income",
+      "amount": 34,
+      "id": 7
+    },
+    {
+      "name": "xyq",
+      "type": "income",
+      "amount": 43,
+      "id": 8
     }
   ]
 }

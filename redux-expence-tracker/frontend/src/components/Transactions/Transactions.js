@@ -10,7 +10,7 @@ const Transactions = () => {
   )
 
   React.useEffect(() => {
-    dispatch(fetchTransactions())
+    dispatch(fetchTransactions(5))
   }, [])
 
   return (
@@ -30,6 +30,8 @@ const Transactions = () => {
             ))
           )}
         </ul>
+        {/* Show More Buttons */}
+        <div className={{ backgroundColor: 'gray' }}>View More</div>
       </div>
     </>
   )
