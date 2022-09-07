@@ -1,16 +1,28 @@
 {
   "transactions": [
     {
-      "name": "Get Salary",
+      "name": "Salary From Scan IT",
       "type": "income",
-      "amount": 20000,
+      "amount": 2000,
       "id": 1
     },
     {
-      "name": "Basa Coasts",
+      "name": "family coast",
       "type": "expense",
-      "amount": 1000,
+      "amount": 200,
       "id": 2
+    },
+    {
+      "name": "another",
+      "type": "expense",
+      "amount": 3233,
+      "id": 3
+    },
+    {
+      "name": "Force Salary",
+      "type": "income",
+      "amount": 20000,
+      "id": 4
     }
   ]
 }
