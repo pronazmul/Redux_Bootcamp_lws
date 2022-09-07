@@ -7,15 +7,15 @@
       "id": 1
     },
     {
-      "name": "Basa Coast",
+      "name": "Basa Coasts",
       "type": "expense",
-      "amount": 200,
+      "amount": 1000,
       "id": 2
     },
     {
-      "name": "Get Project Money",
-      "type": "income",
-      "amount": 2000,
+      "name": "Personal Costs",
+      "type": "expense",
+      "amount": 30,
       "id": 3
     }
   ]

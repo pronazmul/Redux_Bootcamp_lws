@@ -1,11 +1,18 @@
 import { useFormik } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTransaction } from './../features/transaction/transactionSlice'
+import {
+  addTransaction,
+  cancelEdit,
+  updateTransaction,
+} from './../features/transaction/transactionSlice'
 
 const TransactionForm = () => {
   const dispatch = useDispatch()
-  const { isLoading } = useSelector((state) => state.transaction)
+  const { isLoading, editMode, editDetails } = useSelector(
+    (state) => state.transaction
+  )
+  let { id, name, type, amount } = editDetails
   const fromik = useFormik({
     initialValues: {
       name: '',
@@ -13,17 +20,38 @@ const TransactionForm = () => {
       amount: '',
     },
     onSubmit: (values, { resetForm }) => {
-      dispatch(addTransaction(values))
+      if (editMode) {
+        dispatch(updateTransaction({ id, data: values }))
+        dispatch(cancelEdit())
+      } else {
+        dispatch(addTransaction(values))
+      }
       resetForm()
     },
   })
+  const {
+    handleChange,
+    handleSubmit,
+    values,
+    setFieldValue,
+    resetForm,
+  } = fromik
 
-  const { handleChange, handleSubmit, values } = fromik
+  React.useEffect(() => {
+    if (id) {
+      setFieldValue('name', name)
+      setFieldValue('type', type)
+      setFieldValue('amount', amount)
+    }
+  }, [id])
 
+  function editModeCloser() {
+    dispatch(cancelEdit())
+    resetForm()
+  }
   return (
     <div className='form'>
       <h3>Add new transaction</h3>
-
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='transaction_name'>Name</label>
@@ -78,10 +106,14 @@ const TransactionForm = () => {
           />
         </div>
         <button disabled={isLoading} type='submit' className='btn'>
-          Add Transaction
+          {editMode ? 'Update Transation' : ' Add Transaction'}
         </button>
       </form>
-      <button className='btn cancel_edit'>Cancel Edit</button>
+      {editMode && (
+        <button className='btn cancel_edit' onClick={editModeCloser}>
+          Cancel Edit
+        </button>
+      )}
     </div>
   )
 }
