@@ -11,12 +11,6 @@
       "type": "expense",
       "amount": 1000,
       "id": 2
-    },
-    {
-      "name": "Personal Costs",
-      "type": "expense",
-      "amount": 30,
-      "id": 3
     }
   ]
 }
