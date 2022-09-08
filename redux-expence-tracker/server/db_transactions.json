@@ -143,6 +143,12 @@
       "type": "expense",
       "amount": 2000,
       "id": 24
+    },
+    {
+      "name": "Student Salary ",
+      "type": "income",
+      "amount": 3000,
+      "id": 25
     }
   ]
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchTransactions } from '../../features/transaction/transactionSlice'
 import TransactionItem from './TransactionItem'
 
@@ -32,7 +33,9 @@ const Transactions = () => {
         </ul>
         {/* Show More Buttons */}
         {transactions.length ? (
-          <button className='btn see_more'>See More</button>
+          <Link to='/transaction' className='see_more'>
+            See More
+          </Link>
         ) : null}
       </div>
     </>
