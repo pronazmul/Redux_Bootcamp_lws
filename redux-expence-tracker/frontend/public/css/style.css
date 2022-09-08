@@ -220,3 +220,13 @@ label {
     font-size: 95% !important;
   }
 }
+
+.see_more {
+  /* display: none; */
+  margin-top: 10px;
+  background-color: #02b754 !important;
+}
+
+.see_more:hover {
+  background-color: #005827 !important;
+}

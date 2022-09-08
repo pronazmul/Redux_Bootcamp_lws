@@ -6,6 +6,7 @@ import {
   transactionEdit,
   deleteTransaction,
 } from '../../features/transaction/transactionSlice'
+import { thousandSaperator } from '../../utils/logics'
 const TransactionItem = ({ transaction }) => {
   const { id, name, amount, type } = transaction
 
@@ -22,7 +23,7 @@ const TransactionItem = ({ transaction }) => {
     <li className={`transaction ${type}`}>
       <p>{name}</p>
       <div className='right'>
-        <p>৳ {amount}</p>
+        <p>৳ {thousandSaperator(amount)}</p>
         <button className='link' onClick={editHandler}>
           <img className='icon' alt='Edit Icon' src={EditIcon} />
         </button>

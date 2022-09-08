@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { thousandSaperator } from '../utils/logics'
 
 const Balance = () => {
   const { transactions } = useSelector((state) => state.transaction)
@@ -14,7 +15,7 @@ const Balance = () => {
       <p>Your Current Balance</p>
       <h3>
         <span>৳ </span>
-        <span>{balance}</span>
+        <span>{thousandSaperator(balance)}</span>
       </h3>
     </div>
   )

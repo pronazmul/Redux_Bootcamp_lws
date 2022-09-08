@@ -1,40 +1,148 @@
 {
   "transactions": [
     {
-      "name": "family coast",
+      "name": "Freelance Salary August",
+      "type": "income",
+      "amount": 20000,
+      "id": 1
+    },
+    {
+      "name": "Family coast august",
       "type": "expense",
-      "amount": 200,
+      "amount": 2000,
       "id": 2
     },
     {
-      "name": "Force Salary",
+      "name": "utility bill august",
+      "type": "expense",
+      "amount": 500,
+      "id": 3
+    },
+    {
+      "name": "Force Salary august",
       "type": "income",
       "amount": 20000,
       "id": 4
     },
     {
-      "name": "freelance",
-      "type": "income",
-      "amount": 20,
+      "name": "House rent",
+      "type": "expense",
+      "amount": 5000,
       "id": 5
     },
     {
-      "name": "utilities",
+      "name": "Purchase new bike",
       "type": "expense",
-      "amount": 23,
+      "amount": 500000,
       "id": 6
     },
     {
-      "name": "another",
+      "name": "New Project",
       "type": "income",
-      "amount": 34,
+      "amount": 300000,
       "id": 7
     },
     {
-      "name": "xyq",
+      "name": "student bill",
       "type": "income",
-      "amount": 43,
+      "amount": 5000,
       "id": 8
+    },
+    {
+      "name": "Mess boy bill",
+      "type": "expense",
+      "amount": 500,
+      "id": 9
+    },
+    {
+      "name": "Workar bill",
+      "type": "expense",
+      "amount": 500,
+      "id": 10
+    },
+    {
+      "name": "E commerce Project",
+      "type": "income",
+      "amount": 100000,
+      "id": 11
+    },
+    {
+      "name": "Freelance Salary September",
+      "type": "income",
+      "amount": 20000,
+      "id": 12
+    },
+    {
+      "name": "Family coast September",
+      "type": "expense",
+      "amount": 2000,
+      "id": 13
+    },
+    {
+      "name": "utility bill September",
+      "type": "expense",
+      "amount": 500,
+      "id": 14
+    },
+    {
+      "name": "Force Salary September",
+      "type": "income",
+      "amount": 20000,
+      "id": 15
+    },
+    {
+      "name": "House rent",
+      "type": "expense",
+      "amount": 5000,
+      "id": 16
+    },
+    {
+      "name": "New Project",
+      "type": "income",
+      "amount": 30000,
+      "id": 17
+    },
+    {
+      "name": "student bill",
+      "type": "income",
+      "amount": 5000,
+      "id": 18
+    },
+    {
+      "name": "Mess boy bill",
+      "type": "expense",
+      "amount": 500,
+      "id": 19
+    },
+    {
+      "name": "Workar bill",
+      "type": "expense",
+      "amount": 500,
+      "id": 20
+    },
+    {
+      "name": "E commerce Project",
+      "type": "income",
+      "amount": 100000,
+      "id": 21
+    },
+    {
+      "name": "API Project",
+      "type": "income",
+      "amount": 12000,
+      "id": 22
+    },
+    {
+      "name": "Domain Charge",
+      "type": "expense",
+      "amount": 5000,
+      "id": 23
+    },
+    {
+      "name": "Server Bill",
+      "type": "expense",
+      "amount": 2000,
+      "id": 24
     }
   ]
 }

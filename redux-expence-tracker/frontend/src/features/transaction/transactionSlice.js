@@ -70,7 +70,7 @@ const transactionSlice = createSlice({
       .addCase(fetchTransactions.fulfilled, (state, action) => {
         state.isError = false
         state.isLoading = false
-        state.transactions = action.payload
+        state.transactions = action.payload.data
       })
       .addCase(fetchTransactions.rejected, (state, action) => {
         state.isLoading = false
@@ -86,6 +86,7 @@ const transactionSlice = createSlice({
         state.isError = false
         state.isLoading = false
         state.transactions.unshift(action.payload)
+        state.transactions = state.transactions.splice(0, 5)
       })
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false

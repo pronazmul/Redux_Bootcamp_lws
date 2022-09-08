@@ -23,7 +23,7 @@ const Transactions = () => {
           ) : isError && error ? (
             <p>Something Went Wrong!</p>
           ) : !transactions.length ? (
-            <p>No Transaction Found!</p>
+            <p>You Didn't make any transaction yet!</p>
           ) : (
             transactions.map((transaction) => (
               <TransactionItem key={transaction.id} transaction={transaction} />
@@ -31,7 +31,9 @@ const Transactions = () => {
           )}
         </ul>
         {/* Show More Buttons */}
-        <div className={{ backgroundColor: 'gray' }}>View More</div>
+        {transactions.length ? (
+          <button className='btn see_more'>See More</button>
+        ) : null}
       </div>
     </>
   )
