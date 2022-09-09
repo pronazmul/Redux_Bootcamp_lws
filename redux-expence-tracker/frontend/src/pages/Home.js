@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Balance from '../components/Balance'
 import TransactionForm from '../components/TransactionForm'
 import Transactions from '../components/Transactions/Transactions'
@@ -9,11 +9,17 @@ import {
 } from '../features/transaction/transactionSlice'
 
 const Home = () => {
+  const { transactions } = useSelector((state) => state.transaction)
   let dispatch = useDispatch()
+
   React.useEffect(() => {
     dispatch(fetchTotalAmont())
-    dispatch(fetchTransactions({ type: '', search: '', page: 1, entities: 5 }))
-  }, [])
+    if (transactions.length < 5) {
+      dispatch(
+        fetchTransactions({ type: '', search: '', page: 1, entities: 5 })
+      )
+    }
+  }, [transactions])
 
   return (
     <>

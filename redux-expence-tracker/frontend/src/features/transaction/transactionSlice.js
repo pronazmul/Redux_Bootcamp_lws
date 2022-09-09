@@ -123,6 +123,8 @@ const transactionSlice = createSlice({
           (tx) => tx.id === action.payload.id
         )
         state.transactions[updateIndex] = action.payload
+
+
       })
       .addCase(updateTransaction.rejected, (state, action) => {
         state.isLoading = false
