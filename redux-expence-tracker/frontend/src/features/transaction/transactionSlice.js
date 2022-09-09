@@ -1,13 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { act } from 'react-dom/test-utils'
 import {
   getTransactionsAPI,
   addTransactionAPI,
   updateTransactionAPI,
   deleteTransactionAPI,
+  getTotalAmountAPI,
 } from './transactionAPI'
 
 const initialState = {
   transactions: [],
+  totalAmount: 0,
   isLoading: false,
   isError: false,
   error: '',
@@ -17,9 +20,17 @@ const initialState = {
 
 export const fetchTransactions = createAsyncThunk(
   'transaction/fetchTransaction',
-  async (limit) => {
-    const transactions = await getTransactionsAPI(limit)
+  async (query) => {
+    const transactions = await getTransactionsAPI(query)
     return transactions
+  }
+)
+
+export const fetchTotalAmont = createAsyncThunk(
+  'transaction/fetchTotalAmont',
+  async () => {
+    const amount = await getTotalAmountAPI()
+    return amount
   }
 )
 
@@ -77,6 +88,9 @@ const transactionSlice = createSlice({
         state.isError = true
         state.error = action.payload
       })
+      .addCase(fetchTotalAmont.fulfilled, (state, action) => {
+        state.totalAmount = action.payload
+      })
       .addCase(addTransaction.pending, (state) => {
         state.isError = true
         state.error = ''
@@ -87,6 +101,10 @@ const transactionSlice = createSlice({
         state.isLoading = false
         state.transactions.unshift(action.payload)
         state.transactions = state.transactions.splice(0, 5)
+        state.totalAmount =
+          action.payload.type === 'income'
+            ? state.totalAmount + action.payload.amount
+            : state.totalAmount - action.payload.amount
       })
       .addCase(addTransaction.rejected, (state, action) => {
         state.isLoading = false
@@ -119,6 +137,11 @@ const transactionSlice = createSlice({
       .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.isError = false
         state.isLoading = false
+        let deletetx = state.transactions.find((t) => t.id === action.meta.arg)
+        state.totalAmount =
+          deletetx.type === 'income'
+            ? state.totalAmount - deletetx.amount
+            : state.totalAmount + deletetx.amount
         state.transactions = state.transactions.filter(
           (transaction) => transaction.id !== action.meta.arg
         )

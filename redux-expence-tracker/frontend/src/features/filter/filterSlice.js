@@ -7,6 +7,7 @@ const initialState = {
   pages: 0,
   page: 1,
   entities: 10,
+  totalCount: 0,
 }
 
 const filterSlice = createSlice({
@@ -31,14 +32,11 @@ const filterSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchTransactions.fulfilled, (state, action) => {
       state.pages = Math.ceil(action.payload.totalCount / state.entities)
+      state.totalCount = action.payload.totalCount
     })
   },
 })
 
 export default filterSlice.reducer
-export const {
-  searched,
-  typeSelected,
-  pageSelected,
-  resetFilter,
-} = filterSlice.actions
+export const { searched, typeSelected, pageSelected, resetFilter } =
+  filterSlice.actions

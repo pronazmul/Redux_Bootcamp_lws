@@ -1,22 +1,16 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchTransactions } from '../../features/transaction/transactionSlice'
+
 import TransactionItem from './TransactionItem'
 
-const Transactions = () => {
-  let dispatch = useDispatch()
+const Transactions = ({ home }) => {
   const { transactions, isLoading, isError, error } = useSelector(
     (state) => state.transaction
   )
-
-  React.useEffect(() => {
-    dispatch(fetchTransactions(5))
-  }, [])
-
   return (
     <>
-      <p className='second_heading'>Your Transactions:</p>
+      {home && <p className='second_heading'>Your Transactions:</p>}
       <div className='conatiner_of_list_of_transactions'>
         <ul>
           {isLoading ? (
@@ -31,10 +25,9 @@ const Transactions = () => {
             ))
           )}
         </ul>
-        {/* Show More Buttons */}
-        {transactions.length ? (
+        {home && transactions.length ? (
           <Link to='/transaction' className='see_more'>
-            See More
+            View All
           </Link>
         ) : null}
       </div>

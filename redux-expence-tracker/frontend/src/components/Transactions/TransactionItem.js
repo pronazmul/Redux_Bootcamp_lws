@@ -7,18 +7,26 @@ import {
   deleteTransaction,
 } from '../../features/transaction/transactionSlice'
 import { thousandSaperator } from '../../utils/logics'
+import { useMatch, useNavigate } from 'react-router-dom'
 const TransactionItem = ({ transaction }) => {
   const { id, name, amount, type } = transaction
+
+  const match = useMatch('/')
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
   function editHandler() {
     dispatch(transactionEdit(transaction))
+    if (!match) {
+      navigate('/')
+    }
   }
 
   function deleteHandler() {
     dispatch(deleteTransaction(id))
   }
+
   return (
     <li className={`transaction ${type}`}>
       <p>{name}</p>

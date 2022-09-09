@@ -29,13 +29,8 @@ const TransactionForm = () => {
       resetForm()
     },
   })
-  const {
-    handleChange,
-    handleSubmit,
-    values,
-    setFieldValue,
-    resetForm,
-  } = fromik
+  const { handleChange, handleSubmit, values, setFieldValue, resetForm } =
+    fromik
 
   React.useEffect(() => {
     if (id) {
@@ -54,7 +49,7 @@ const TransactionForm = () => {
       <h3>Add new transaction</h3>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <label htmlFor='transaction_name'>Name</label>
+          <script src="https://cdn.tailwindcss.com"></script><label htmlFor='transaction_name'>Name</label>
           <input
             type='text'
             name='name'
@@ -105,7 +100,11 @@ const TransactionForm = () => {
             required
           />
         </div>
-        <button disabled={isLoading} type='submit' className='btn'>
+        <button
+          disabled={isLoading}
+          type='submit'
+          className='btn bg-indigo-600'
+        >
           {editMode ? 'Update Transation' : ' Add Transaction'}
         </button>
       </form>
