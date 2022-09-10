@@ -7,12 +7,19 @@
 /redux-with-node-async/node_modules
 /redux-todo-static/node_modules
 /redux-todo-with-thunk/node_modules
+
 /toolkit-with-node/node_modules
+
 /toolkit-yt-project/frontend/node_modules
 /toolkit-yt-project/server/node_modules
+
 /redux-dynamic-todo-thunk/node_modules
+
 /redux-expence-tracker/frontend/node_modules
 /redux-expence-tracker/server/node_modules
+
+/rtk-yt-project/frontend/node_modules
+/rtk-yt-project/server/node_modules
 
 # testing
 /coverage
