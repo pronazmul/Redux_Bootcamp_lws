@@ -1,9 +1,24 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import deleteImage from '../../assets/delete.svg'
 import editImage from '../../assets/edit.svg'
+import { useDeleteVideoMutation } from '../../features/api/apiSlice'
+import toast from 'react-hot-toast'
 
 export default function Description({ video }) {
   const { title, date, description, id } = video
+  const [deleteVideo, { isLoading }] = useDeleteVideoMutation()
+  const navigate = useNavigate()
+
+  const deleteHandler = async () => {
+    try {
+      await deleteVideo(id)
+      toast.success('Video Deleted Successfully!')
+      navigate('/')
+    } catch (error) {
+      toast.error('Failed to delete Video')
+    }
+  }
+
   return (
     <div>
       <h1 className='text-lg font-semibold tracking-tight text-slate-800'>
@@ -27,7 +42,7 @@ export default function Description({ video }) {
               </span>
             </Link>
           </div>
-          <div className='flex gap-1'>
+          <div className='flex gap-1' onClick={!isLoading && deleteHandler}>
             <div className='shrink-0'>
               <img className='w-5 block' src={deleteImage} alt='Delete' />
             </div>
@@ -37,7 +52,6 @@ export default function Description({ video }) {
           </div>
         </div>
       </div>
-
       <div className='mt-4 text-sm text-[#334155] dark:text-slate-400'>
         {description}
       </div>
