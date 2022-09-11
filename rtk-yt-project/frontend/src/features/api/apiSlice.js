@@ -13,7 +13,7 @@ export const apiSlice = createApi({
       query: (videoId) => `/videos/${videoId}`,
     }),
     getRelatedVideos: builder.query({
-      query: ({ videoId, title }) => {
+      query: ({ title }) => {
         let searchQuery = title
           .split(' ')
           .filter((v) => {
@@ -25,8 +25,15 @@ export const apiSlice = createApi({
         return `/videos?${searchQuery}&_limit=4`
       },
     }),
+    addVideo: builder.mutation({
+      query: (body) => ({
+        url: '/videos',
+        method: 'POST',
+        body: body,
+      }),
+    }),
   }),
 })
 
-export const { useGetVideosQuery, useGetVideoQuery, useGetRelatedVideosQuery } =
+export const { useGetVideosQuery, useGetVideoQuery, useGetRelatedVideosQuery, useAddVideoMutation } =
   apiSlice
