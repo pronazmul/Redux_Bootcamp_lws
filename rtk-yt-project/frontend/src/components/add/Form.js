@@ -7,16 +7,15 @@ import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast'
 
 export default function Form() {
-  const [addVideo, { isLoading, isSuccess, isError }] = useAddVideoMutation()
+  const [addVideo, { isLoading }] = useAddVideoMutation()
 
-  function addVideoHandler(values, { resetForm }) {
-    addVideo(values)
-    if (isSuccess) {
+  const addVideoHandler = async (values, { resetForm }) => {
+    try {
+      await addVideo(values)
       toast.success('Video Added Sucessfully!')
       resetForm()
-    }
-    if (isError) {
-      toast.error('Something Went Wrong')
+    } catch (error) {
+      toast.error('Failed to add video!')
     }
   }
 
@@ -124,8 +123,6 @@ export default function Form() {
                   Save
                 </button>
               </div>
-
-              {/* <Success message="Video was added successfully" /> */}
             </div>
           </form>
         )}

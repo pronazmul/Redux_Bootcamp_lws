@@ -11,13 +11,17 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/6O4s7v28nlw",
       "thumbnail": "https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg",
-      "tags": ["javascript", "react", "tips"],
+      "tags": [
+        "javascript",
+        "react",
+        "tips"
+      ],
       "likes": 2,
       "unlikes": 4
     },
     {
       "id": 2,
-      "title": "Create A Virtual Talking Friend with Just 4 Lines of Python",
+      "title": "Creates A Virtual Talking Friend with Just 5 Lines of Python",
       "description": " For new python developer, pyttsx3 is a cool little library to convert text to speech. This simple tutorial will help to create something simple and fun.",
       "author": "Programming Hero",
       "avatar": "https://avatars.githubusercontent.com/u/53802153?v=4",
@@ -26,7 +30,10 @@
       "views": "22.7k",
       "link": "https://www.youtube.com/embed/nbX4MBzB_rg",
       "thumbnail": "https://i3.ytimg.com/vi/nbX4MBzB_rg/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 22,
       "unlikes": 12
     },
@@ -41,7 +48,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/w7ejDZ8SWv8",
       "thumbnail": "https://i3.ytimg.com/vi/w7ejDZ8SWv8/maxresdefault.jpg",
-      "tags": ["react", "javascript"],
+      "tags": [
+        "react",
+        "javascript"
+      ],
       "likes": 7,
       "unlikes": 7
     },
@@ -56,7 +66,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/N-U6AVcIPy4",
       "thumbnail": "https://i3.ytimg.com/vi/N-U6AVcIPy4/maxresdefault.jpg",
-      "tags": ["vscode", "tips"],
+      "tags": [
+        "vscode",
+        "tips"
+      ],
       "likes": 2,
       "unlikes": 2
     },
@@ -71,7 +84,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/pQeFxdT3FGY",
       "thumbnail": "https://i3.ytimg.com/vi/pQeFxdT3FGY/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -86,7 +102,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/MrjeefD8sac",
       "thumbnail": "https://i3.ytimg.com/vi/MrjeefD8sac/maxresdefault.jpg",
-      "tags": ["nextjs", "javascript"],
+      "tags": [
+        "nextjs",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -98,10 +117,13 @@
       "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4",
       "date": "March 11, 2022",
       "duration": "10:12",
-      "views": "2.1k",
+      "views": "2.3k",
       "link": "https://www.youtube-nocookie.com/embed/4M7D3O2XX4o",
       "thumbnail": "https://i3.ytimg.com/vi/4M7D3O2XX4o/maxresdefault.jpg",
-      "tags": ["tailwind", "css"],
+      "tags": [
+        "tailwind",
+        "css"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -116,7 +138,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/MAwOPyOztDs",
       "thumbnail": "https://i3.ytimg.com/vi/MAwOPyOztDs/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -131,7 +156,11 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/dD9O8DnIBj4",
       "thumbnail": "https://i3.ytimg.com/vi/dD9O8DnIBj4/maxresdefault.jpg",
-      "tags": ["debounce", "javascript", "tips"],
+      "tags": [
+        "debounce",
+        "javascript",
+        "tips"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -146,7 +175,10 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/mTz0GXj8NN0",
       "thumbnail": "https://i3.ytimg.com/vi/mTz0GXj8NN0/maxresdefault.jpg",
-      "tags": ["nextjs", "javascript"],
+      "tags": [
+        "nextjs",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -161,7 +193,11 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/4tV1Mfi4fMA",
       "thumbnail": "https://i3.ytimg.com/vi/4tV1Mfi4fMA/maxresdefault.jpg",
-      "tags": ["sass", "css", "ui"],
+      "tags": [
+        "sass",
+        "css",
+        "ui"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -176,13 +212,16 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/AWvsXxDtEkU",
       "thumbnail": "https://i3.ytimg.com/vi/AWvsXxDtEkU/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
     {
       "id": 13,
-      "title": "React Router DOM v6 Bangla Tutorial - Breaking Changes - React Router 6 vs 5",
+      "title": "React Router DOMs v6 Bangla Tutorial - Breaking Changes - React Router 6 vs 5",
       "description": "In this React Router DOM v6 Bangla tutorial, you will learn how to install react router dom 6, what are the breaking changes in react router 6, difference between react router 6 vs 5, how to upgrade from react router v5 to react router v6. ",
       "author": "Learn with Sumit",
       "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4",
@@ -191,7 +230,11 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/34tjWL9wi4g",
       "thumbnail": "https://i3.ytimg.com/vi/34tjWL9wi4g/maxresdefault.jpg",
-      "tags": ["react", "router", "javascript"],
+      "tags": [
+        "react",
+        "router",
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -206,7 +249,10 @@
       "views": "452.7k",
       "link": "https://www.youtube.com/embed/wECc7RPAr7s",
       "thumbnail": "https://i3.ytimg.com/vi/wECc7RPAr7s/maxresdefault.jpg",
-      "tags": ["python", "automation"],
+      "tags": [
+        "python",
+        "automation"
+      ],
       "likes": 0,
       "unlikes": 0
     },
@@ -221,13 +267,17 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/smDa6hoxLKI",
       "thumbnail": "https://i3.ytimg.com/vi/smDa6hoxLKI/maxresdefault.jpg",
-      "tags": ["tailwind", "css", "ui"],
+      "tags": [
+        "tailwind",
+        "css",
+        "ui"
+      ],
       "likes": 0,
       "unlikes": 0
     },
     {
       "id": 16,
-      "title": "JavaScript Crash Course For Beginners",
+      "title": "JavaScripts Crash Course For Beginners",
       "description": "In this crash course we will go over the fundamentals of JavaScript including more modern syntax like classes, arrow functions, etc. This is the starting point on my channel for learning JS.",
       "author": "Traversy Media",
       "avatar": "https://avatars.githubusercontent.com/u/5550850?v=4",
@@ -236,7 +286,9 @@
       "views": "2.1k",
       "link": "https://www.youtube-nocookie.com/embed/hdI2bqOjy3c",
       "thumbnail": "https://i3.ytimg.com/vi/hdI2bqOjy3c/maxresdefault.jpg",
-      "tags": ["javascript"],
+      "tags": [
+        "javascript"
+      ],
       "likes": 0,
       "unlikes": 0
     }
