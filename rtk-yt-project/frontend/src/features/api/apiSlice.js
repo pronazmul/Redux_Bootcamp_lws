@@ -9,7 +9,24 @@ export const apiSlice = createApi({
     getVideos: builder.query({
       query: () => '/videos',
     }),
+    getVideo: builder.query({
+      query: (videoId) => `/videos/${videoId}`,
+    }),
+    getRelatedVideos: builder.query({
+      query: ({ videoId, title }) => {
+        let searchQuery = title
+          .split(' ')
+          .filter((v) => {
+            const regx = new RegExp(/[a-zA-Z]/gi)
+            return regx.test(v)
+          })
+          .map((v) => `title_like=${v}`)
+          .join('&')
+        return `/videos?${searchQuery}&_limit=4`
+      },
+    }),
   }),
 })
 
-export const { useGetVideosQuery } = apiSlice
+export const { useGetVideosQuery, useGetVideoQuery, useGetRelatedVideosQuery } =
+  apiSlice

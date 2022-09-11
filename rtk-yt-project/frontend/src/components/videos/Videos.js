@@ -7,7 +7,7 @@ export default function Videos() {
   const { data: videos, isLoading, isError } = useGetVideosQuery()
 
   return isLoading ? (
-    [...Array(9)].map((_v, i) => <VideoLoader key={i} />)
+    <VideoLoader times={12} />
   ) : isError ? (
     <Error />
   ) : videos.length ? (
