@@ -21,6 +21,10 @@
 /rtk-yt-project/frontend/node_modules
 /rtk-yt-project/server/node_modules
 
+
+/rtk-advanced-todo/frontend/node_modules
+/rtk-advanced-todo/server/node_modules
+
 # testing
 /coverage
 
