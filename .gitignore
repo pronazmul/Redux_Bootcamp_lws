@@ -25,6 +25,10 @@
 /rtk-advanced-todo/frontend/node_modules
 /rtk-advanced-todo/server/node_modules
 
+/rtk-chat-app/frontend/node_modules
+/rtk-chat-app/server/node_modules
+
+
 # testing
 /coverage
 

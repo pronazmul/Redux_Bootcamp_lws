@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  body {
+    @apply font-poppins;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-roboto;
+  }
+} */
+
+@layer components {
+  /* .size-selector input:checked + label {
+    @apply bg-primary text-white;
+  }
+  .color-selector input:checked + label {
+    @apply ring-2 ring-primary;
+  } */
+  /* .input-box {
+    @apply w-full block rounded border border-gray-300 px-4 py-3 text-gray-600 text-sm focus:ring-primary focus:border-primary placeholder-gray-500;
+  } */
+  /* 
+  .success {
+    @apply focus:ring-green-500 focus:border-green-500;
+  }
+  .w-full-btn {
+    @apply bg-primary border border-primary hover:text-primary hover:bg-transparent rounded text-white block w-full text-center py-2 transition duration-300;
+  } */
+
+  .form-btn {
+    @apply relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
+  }
+}
