@@ -5,6 +5,7 @@ import { store } from './app/store'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './index.css'
+import { Toaster } from 'react-hot-toast'
 
 const container = document.getElementById('root')
 const root = createRoot(container)
@@ -12,6 +13,7 @@ const root = createRoot(container)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Toaster position='top-right' reverseOrder={false} />
       <App />
     </Provider>
   </React.StrictMode>

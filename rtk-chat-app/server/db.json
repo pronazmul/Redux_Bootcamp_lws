@@ -23,6 +23,12 @@
       "password": "$2a$10$gaqKjKQP5rGUlPrMrCBkYe.UsTRTmt3PNiIOEKhNkJl2Gn/HnUuoe",
       "name": "Nazmul Huda",
       "id": 4
+    },
+    {
+      "email": "nuhidul@gmail.com",
+      "password": "$2a$10$h7f.vhRtdZsgBHs3hFbjX.8N2ersOWTsyT7L3g.uuM8Al5oxV6p7S",
+      "name": "Nuhidul",
+      "id": 5
     }
   ],
   "conversations": [
