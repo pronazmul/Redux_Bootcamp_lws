@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './components/authRoutes/PrivateRoute'
 import PublicRoute from './components/authRoutes/PublicRoute'
-import AuthLoader from './components/ui/AuthLoader'
+import Loader from './components/ui/Loader'
 import NotFound from './components/ui/NotFound'
 import useAuthCheck from './hooks/useAuthCheck'
 import Conversation from './pages/Conversation'
@@ -13,7 +13,7 @@ function App() {
   const authChecked = useAuthCheck()
 
   return !authChecked ? (
-    <AuthLoader />
+    <Loader content='Authentication Checking' vh='100vh' />
   ) : (
     <Router>
       <Routes>
@@ -49,7 +49,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path='*' element={<NotFound />} />
+        <Route
+          path='*'
+          element={
+            <PublicRoute>
+              <NotFound />
+            </PublicRoute>
+          }
+        />
       </Routes>
     </Router>
   )
