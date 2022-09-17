@@ -15,6 +15,7 @@ const Input = ({
       )}
       <input
         placeholder={title}
+        value={value}
         {...attributes}
         className={`input ${className}
       }`}

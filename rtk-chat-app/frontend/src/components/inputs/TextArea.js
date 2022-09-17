@@ -5,7 +5,7 @@ const TextArea = ({ title, className, ...attributes }) => {
     <textarea
       placeholder={title}
       {...attributes}
-      class={`input ${className}`}
+      className={`input ${className}`}
     />
   )
 }

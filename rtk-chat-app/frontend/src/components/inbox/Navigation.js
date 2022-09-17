@@ -9,7 +9,7 @@ export default function Navigation() {
   const logout = () => {
     dispatch(userLoggedOut())
     localStorage.removeItem('auth')
-    toast.success('User Loggedout')
+    toast.success('Logged Out')
   }
 
   return (
