@@ -1,45 +1,59 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logoImage from '../assets/lws-logo-light.svg'
 import Input from '../components/inputs/Input'
 import { useFormik } from 'formik'
 import InputPassword from '../components/inputs/InputPassword'
+import { useLoginMutation } from '../features/auth/authApi'
+import { toast } from 'react-hot-toast'
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [login, { data, isLoading, error }] = useLoginMutation()
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
     onSubmit: (values, { resetForm }) => {
-      alert(JSON.stringify(values))
+      login(values)
       resetForm()
     },
   })
+  React.useEffect(() => {
+    if (data?.accessToken) {
+      toast.success('Successfully Logged In.')
+      navigate('/inbox')
+    }
+    if (error?.data) {
+      toast.error(error.data)
+    }
+  }, [data, error, navigate])
+
   const { handleChange, handleSubmit, values } = formik
 
   return (
-    <div class='grid place-items-center h-screen bg-[#F9FAFB'>
-      <div class='min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
-        <div class='max-w-md w-full space-y-8'>
+    <div className='grid place-items-center h-screen bg-[#F9FAFB'>
+      <div className='min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-md w-full space-y-8'>
           <div>
             <img
-              class='mx-auto h-12 w-auto'
+              className='mx-auto h-12 w-auto'
               src={logoImage}
               alt='Learn with sumit'
             />
-            <h2 class='mt-6 text-center text-3xl font-extrabold text-gray-900'>
+            <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
               Sign in to your account
             </h2>
           </div>
-          <form class='mt-8 space-y-6' onSubmit={handleSubmit}>
+          <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
             <div>
               <Input
                 title='Email Address'
                 name='email'
                 type='email'
-                onChange={handleChange}
                 value={values.email}
+                onChange={handleChange}
                 className='rounded-t-md'
                 required
               />
@@ -52,15 +66,15 @@ const Login = () => {
                 required
               />
               <Link
-                className='block font-black text-indigo-600 text-sm text-right mt-1'
+                className='block font-medium text-indigo-600 text-sm text-right mt-1'
                 to='/register'
               >
-                Create new Acount?
+                Register
               </Link>
             </div>
 
             <div>
-              <button type='submit' class='form-btn'>
+              <button disabled={isLoading} type='submit' className='form-btn'>
                 Sign in
               </button>
             </div>

@@ -1,35 +1,14 @@
 import * as yup from 'yup'
-const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png']
+// const SUPPORTED_FORMATS = ['image/jpeg', 'image/jpg', 'image/png']
 const PasswordRegEx =
   /^.*((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/
 const mobileRegEx = /(\+088)?-?01[0-9]\d{8}/g
-const onlyDigit = /^[0-9]+$/
+// const onlyDigit = /^[0-9]+$/
 const onlyChar = /^[A-Z a-z]+$/
-
-export const ChangePasswordSchema = yup.object().shape({
-  oldPassword: yup
-    .string()
-    .required('Old Password is Required!')
-    .matches(PasswordRegEx, 'Invalid Password!')
-    .min(8, 'Invalid Password!')
-    .max(50, 'Invalid Password!'),
-  password: yup
-    .string()
-    .required('New Password is Required!')
-    .matches(PasswordRegEx, 'Uppercase Lowercase Special char Required')
-    .min(8, 'Password Should be minimum 8 character')
-    .max(50, 'Too long'),
-  confirmPassword: yup
-    .string()
-    .required('Confirm Password is Required!')
-    .when('password', (password, field) =>
-      password ? field.required() : field
-    )
-    .oneOf([yup.ref('password')], 'Password does not matched'),
-})
 
 export const RegistrationSchema = yup.object().shape({
   name: yup.string().max(30, 'Too Long!').required('Name is Required!'),
+  email: yup.string().email('Invalid Email'),
   password: yup
     .string()
     .required('Password is Required!')
@@ -52,6 +31,30 @@ export const LoginSchema = yup.object().shape({
     .string()
     .required('Required!')
     .matches(PasswordRegEx, 'Invalid Password'),
+})
+
+//Unused
+
+export const ChangePasswordSchema = yup.object().shape({
+  oldPassword: yup
+    .string()
+    .required('Old Password is Required!')
+    .matches(PasswordRegEx, 'Invalid Password!')
+    .min(8, 'Invalid Password!')
+    .max(50, 'Invalid Password!'),
+  password: yup
+    .string()
+    .required('New Password is Required!')
+    .matches(PasswordRegEx, 'Uppercase Lowercase Special char Required')
+    .min(8, 'Password Should be minimum 8 character')
+    .max(50, 'Too long'),
+  confirmPassword: yup
+    .string()
+    .required('Confirm Password is Required!')
+    .when('password', (password, field) =>
+      password ? field.required() : field
+    )
+    .oneOf([yup.ref('password')], 'Password does not matched'),
 })
 
 export const personalInfoSchema = yup.object().shape({
