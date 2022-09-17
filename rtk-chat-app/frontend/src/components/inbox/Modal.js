@@ -1,20 +1,103 @@
 import TextArea from '../inputs/TextArea'
 import Input from './../inputs/Input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import debounce from '../../utils/debounce'
 import { checkValidEmail } from './../../utils/reguarExpressions'
+import { useGetUserQuery } from '../../features/users/usersApi'
+import Error from './../ui/Error'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  conversationsApi,
+  useAddConversationMutation,
+  useEditConversationMutation,
+} from './../../features/conversations/conversationsApi'
 
 export default function Modal({ open, control }) {
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+  const { email: senderEmail } = user
   const [to, setTo] = useState('')
   const [message, setMessage] = useState('')
+  const [conversation, setConversation] = useState(undefined)
+  const [error, setError] = useState('')
+
+  const { data: participant } = useGetUserQuery(to, {
+    skip: !Boolean(to),
+  })
+
+  const [addConversation, { isSuccess: addConversationSuccess }] =
+    useAddConversationMutation()
+  const [editConversation, { isSuccess: editConversationSuccess }] =
+    useEditConversationMutation()
 
   function doSearch(value) {
+    setTo('')
+    setConversation(undefined)
+    setError('')
     if (checkValidEmail(value)) {
-      setTo(value)
-      console.log(value)
+      setError('')
+      if (value !== senderEmail) {
+        setTo(value)
+      } else {
+        setError('You can not send message to yourself')
+      }
+    } else {
+      setError('Invalid Email')
     }
   }
   const handleSearch = debounce(doSearch, 500)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (conversation?.length) {
+      editConversation({
+        id: conversation[0].id,
+        data: {
+          participants: `${senderEmail}-${participant[0].email}`,
+          users: [user, participant[0]],
+          message,
+          timestamp: new Date().getTime(),
+        },
+      })
+    } else {
+      addConversation({
+        participants: `${senderEmail}-${participant[0].email}`,
+        users: [user, participant[0]],
+        message,
+        timestamp: new Date().getTime(),
+      })
+    }
+  }
+
+  useEffect(() => {
+    setError('')
+    if (participant?.length) {
+      dispatch(
+        conversationsApi.endpoints.getConversation.initiate({
+          userEmail: senderEmail,
+          participantEmail: to,
+        })
+      )
+        .unwrap()
+        .then((data) => {
+          setConversation(data)
+        })
+        .catch((error) => {
+          setError('Something Went Wrong')
+        })
+    }
+
+    if (to && !participant?.length) {
+      setError('User Not found')
+    }
+  }, [participant, dispatch, to, senderEmail])
+
+  useEffect(() => {
+    if (addConversationSuccess || editConversationSuccess) {
+      control()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addConversationSuccess, editConversationSuccess])
 
   return (
     open && (
@@ -27,7 +110,7 @@ export default function Modal({ open, control }) {
           <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
             Send message
           </h2>
-          <form className='mt-8 space-y-6'>
+          <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
             <div className='rounded-md shadow-sm -space-y-px'>
               <Input
                 title='Send To'
@@ -48,12 +131,16 @@ export default function Modal({ open, control }) {
               />
             </div>
             <div>
-              <button type='submit' className='form-btn'>
+              <button
+                disabled={conversation === undefined || message === '' || error}
+                type='submit'
+                className='form-btn  disabled:bg-indigo-400 disabled:cursor-not-allowed'
+              >
                 Send Message
               </button>
             </div>
 
-            {/* <Error message="There was an error" /> */}
+            {error && <Error message={error} />}
           </form>
         </div>
       </>
