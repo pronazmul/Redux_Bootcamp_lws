@@ -22,7 +22,7 @@ export default function ChatItems() {
       {isLoading ? (
         <Loader content='Loading Conversations' />
       ) : isError && error ? (
-        <Error message={error} />
+        <Error message={error?.data} />
       ) : !isError && conversations.length === 0 ? (
         <Blank />
       ) : (
