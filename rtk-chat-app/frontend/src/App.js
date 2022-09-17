@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import PrivateRoute from './components/authRoutes/PrivateRoute'
 import PublicRoute from './components/authRoutes/PublicRoute'
 import AuthLoader from './components/ui/AuthLoader'
+import NotFound from './components/ui/NotFound'
 import useAuthCheck from './hooks/useAuthCheck'
 import Conversation from './pages/Conversation'
 import Inbox from './pages/Inbox'
@@ -48,6 +49,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
   )
