@@ -19,7 +19,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
         try {
           //Wait for Cache Data Loaded
           await cacheDataLoaded
-          //listen on conversation event and take dicision to update or not
+          //listen event and take dicision to update or not
           socket.on('conversation', (data) => {
             updateCachedData((draft) => {
               const conversation = draft.find((c) => c.id == data?.data?.id)
@@ -111,12 +111,14 @@ export const conversationsApi = apiSlice.injectEndpoints({
             ).unwrap()
 
             //UPDATE MESSAGE CACHE PASSIMISTICALLY
-            let c_id = res.conversationId.toString()
-            dispatch(
-              apiSlice.util.updateQueryData('getMessages', c_id, (draft) => {
-                draft.push(res)
-              })
-            )
+
+            // let c_id = res.conversationId.toString()
+            // dispatch(
+            //   apiSlice.util.updateQueryData('getMessages', c_id, (draft) => {
+            //     draft.push(res)
+            //   })
+            // )
+
             //UPDATE MESSAGE CACHE PASSIMISTICALLY
           }
         } catch (error) {
