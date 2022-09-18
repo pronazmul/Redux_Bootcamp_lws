@@ -10,6 +10,14 @@ export const conversationsApi = apiSlice.injectEndpoints({
         method: 'GET',
       }),
 
+      transformResponse(apiResponse, meta) {
+        const totalCount = meta.response.headers.get('X-Total-Count')
+        return {
+          data: apiResponse,
+          totalCount,
+        }
+      },
+
       async onCacheEntryAdded(
         arg,
         { updateCachedData, cacheDataLoaded, cacheEntryRemoved }
@@ -22,12 +30,17 @@ export const conversationsApi = apiSlice.injectEndpoints({
           //listen event and take dicision to update or not
           socket.on('conversation', (data) => {
             updateCachedData((draft) => {
-              const conversation = draft.find((c) => c.id == data?.data?.id)
+              const conversation = draft.data.find(
+                (c) => c.id == data?.data?.id
+              )
 
               if (conversation?.id) {
                 conversation.message = data?.data?.message
                 conversation.timestamp = data?.data?.timestamp
-              } else {
+              }
+
+              if (!conversation?.id && data?.data?.participants.includes(arg)) {
+                draft.data.unshift(data.data)
               }
             })
           })
@@ -52,12 +65,11 @@ export const conversationsApi = apiSlice.injectEndpoints({
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         const conversation = await queryFulfilled
-
+        //Add Message Silently After Cnoversation Added Successfull
         if (conversation?.data?.id) {
           const users = arg.data.users
           const sender = users.find((user) => user.email === arg.senderEmail)
           const receiver = users.find((user) => user.email !== arg.senderEmail)
-
           dispatch(
             messagesApi.endpoints.addMessage.initiate({
               conversationId: conversation.data.id,
@@ -77,20 +89,19 @@ export const conversationsApi = apiSlice.injectEndpoints({
         body: data,
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        //Optimistic Cache Update Start
-        const patchResult = dispatch(
-          apiSlice.util.updateQueryData(
-            'getConversations',
-            arg.senderEmail,
-            (draft) => {
-              const conversation = draft.find((c) => c.id == arg.id)
-              conversation.message = arg.data.message
-              conversation.timestamp = arg.data.timestamp
-            }
-          )
-        )
-        //Optimistic Cache Update End
-
+        //Optimistic Conversations Cache Update Start
+        // const patchResult = dispatch(
+        //   apiSlice.util.updateQueryData(
+        //     'getConversations',
+        //     arg.senderEmail,
+        //     (draft) => {
+        //       const conversation = draft.data.find((c) => c.id == arg.id)
+        //       conversation.message = arg.data.message
+        //       conversation.timestamp = arg.data.timestamp
+        //     }
+        //   )
+        // )
+        //Optimistic Conversations Cache Update End
         try {
           const conversation = await queryFulfilled
           if (conversation?.data?.id) {
@@ -122,7 +133,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
             //UPDATE MESSAGE CACHE PASSIMISTICALLY
           }
         } catch (error) {
-          patchResult.undo()
+          // patchResult.undo()
         }
       },
     }),
