@@ -1,4 +1,5 @@
 import { apiSlice } from '../api/apiSlice'
+import { messagesApi } from './../messages/messagesApi'
 
 export const conversationsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -15,18 +16,56 @@ export const conversationsApi = apiSlice.injectEndpoints({
       }),
     }),
     addConversation: builder.mutation({
-      query: (data) => ({
+      query: ({ senderEmail, data }) => ({
         url: `/conversations`,
         method: 'POST',
         body: data,
       }),
+      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+        const conversation = await queryFulfilled
+
+        if (conversation?.data?.id) {
+          const users = arg.data.users
+          const sender = users.find((user) => user.email === arg.senderEmail)
+          const receiver = users.find((user) => user.email !== arg.senderEmail)
+
+          dispatch(
+            messagesApi.endpoints.addMessage.initiate({
+              conversationId: conversation.data.id,
+              sender,
+              receiver,
+              message: arg.data.message,
+              timestamp: arg.data.timestamp,
+            })
+          )
+        }
+      },
     }),
     editConversation: builder.mutation({
-      query: ({ id, data }) => ({
+      query: ({ id, senderEmail, data }) => ({
         url: `/conversations/${id}`,
         method: 'PATCH',
         body: data,
       }),
+      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+        const conversation = await queryFulfilled
+
+        if (conversation?.data?.id) {
+          const users = arg.data.users
+          const sender = users.find((user) => user.email === arg.senderEmail)
+          const receiver = users.find((user) => user.email !== arg.senderEmail)
+
+          dispatch(
+            messagesApi.endpoints.addMessage.initiate({
+              conversationId: conversation.data.id,
+              sender,
+              receiver,
+              message: arg.data.message,
+              timestamp: arg.data.timestamp,
+            })
+          )
+        }
+      },
     }),
   }),
 })

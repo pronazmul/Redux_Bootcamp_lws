@@ -49,22 +49,29 @@ export default function Modal({ open, control }) {
 
   function handleSubmit(e) {
     e.preventDefault()
+    let participantDetails = participant[0]
+    const { password, ...receiver } = participantDetails
+
     if (conversation?.length) {
       editConversation({
         id: conversation[0].id,
+        senderEmail,
         data: {
-          participants: `${senderEmail}-${participant[0].email}`,
-          users: [user, participant[0]],
+          participants: `${senderEmail}-${receiver.email}`,
+          users: [user, receiver],
           message,
           timestamp: new Date().getTime(),
         },
       })
     } else {
       addConversation({
-        participants: `${senderEmail}-${participant[0].email}`,
-        users: [user, participant[0]],
-        message,
-        timestamp: new Date().getTime(),
+        senderEmail,
+        data: {
+          participants: `${senderEmail}-${receiver.email}`,
+          users: [user, receiver],
+          message,
+          timestamp: new Date().getTime(),
+        },
       })
     }
   }

@@ -11,7 +11,7 @@ const Checkbox = ({ title, name, ...attributes }) => {
         className='check-box'
       />
       <label
-        for={name}
+        htmlFor={name}
         className='ml-2 block text-sm text-gray-900 cursor-pointer'
       >
         {title}
