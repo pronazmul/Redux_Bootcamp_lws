@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
 import logoImage from '../../assets/lws-logo-dark.svg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userLoggedOut } from '../../features/auth/authSlice'
 import { toast } from 'react-hot-toast'
 
 export default function Navigation() {
+  const {
+    user: { name },
+  } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const logout = () => {
     dispatch(userLoggedOut())
@@ -19,6 +22,7 @@ export default function Navigation() {
           <Link to='/'>
             <img className='h-10' src={logoImage} alt='Learn with Sumit' />
           </Link>
+          <p className='text-white font-medium text-lg'>Welcome {name}</p>
           <ul>
             <li className='text-white'>
               <span onClick={logout} className='cursor-pointer'>

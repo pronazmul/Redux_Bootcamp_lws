@@ -51,6 +51,7 @@ export default function Messages({ messages: data, totalCount, id }) {
           loader={<h4>Loading...</h4>}
           scrollableTarget='scrollableDiv'
           className='space-y-2'
+          initialScrollY={0}
         >
           {messages.map((msg) => (
             <Message
