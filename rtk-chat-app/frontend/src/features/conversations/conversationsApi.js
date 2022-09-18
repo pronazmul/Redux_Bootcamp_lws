@@ -113,20 +113,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: data,
       }),
+      //Add messages
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        //Optimistic Conversations Cache Update Start
-        // const patchResult = dispatch(
-        //   apiSlice.util.updateQueryData(
-        //     'getConversations',
-        //     arg.senderEmail,
-        //     (draft) => {
-        //       const conversation = draft.data.find((c) => c.id == arg.id)
-        //       conversation.message = arg.data.message
-        //       conversation.timestamp = arg.data.timestamp
-        //     }
-        //   )
-        // )
-        //Optimistic Conversations Cache Update End
         try {
           const conversation = await queryFulfilled
           if (conversation?.data?.id) {
@@ -136,7 +124,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
               (user) => user.email !== arg.senderEmail
             )
 
-            const res = await dispatch(
+            await dispatch(
               messagesApi.endpoints.addMessage.initiate({
                 conversationId: conversation.data.id,
                 sender,
@@ -145,21 +133,8 @@ export const conversationsApi = apiSlice.injectEndpoints({
                 timestamp: arg.data.timestamp,
               })
             ).unwrap()
-
-            //UPDATE MESSAGE CACHE PASSIMISTICALLY
-
-            // let c_id = res.conversationId.toString()
-            // dispatch(
-            //   apiSlice.util.updateQueryData('getMessages', c_id, (draft) => {
-            //     draft.push(res)
-            //   })
-            // )
-
-            //UPDATE MESSAGE CACHE PASSIMISTICALLY
           }
-        } catch (error) {
-          // patchResult.undo()
-        }
+        } catch (error) {}
       },
     }),
   }),

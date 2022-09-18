@@ -36,9 +36,10 @@ export default function ChatItems() {
 
   React.useEffect(() => {
     if (totalCount > 0) {
-      const more = Math.ceil(
-        totalCount / Number(process.env.REACT_APP_CONVERSATIONS_PER_PAGE) > page
-      )
+      const more =
+        Math.ceil(
+          totalCount / Number(process.env.REACT_APP_CONVERSATIONS_PER_PAGE)
+        ) > page
       setHasMore(more)
     }
   }, [totalCount, page])
