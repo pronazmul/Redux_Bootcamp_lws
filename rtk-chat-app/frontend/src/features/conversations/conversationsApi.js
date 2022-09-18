@@ -1,5 +1,6 @@
 import { apiSlice } from '../api/apiSlice'
 import { messagesApi } from './../messages/messagesApi'
+import socketConnection from '../../utils/socketConnection'
 
 export const conversationsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -8,6 +9,34 @@ export const conversationsApi = apiSlice.injectEndpoints({
         url: `/conversations?participants_like=${email}&_sort=timestamp&_order=desc&_page=1&_limit=${process.env.REACT_APP_CONVERSATIONS_PER_PAGE}`,
         method: 'GET',
       }),
+
+      async onCacheEntryAdded(
+        arg,
+        { updateCachedData, cacheDataLoaded, cacheEntryRemoved }
+      ) {
+        //Create Socket:
+        const socket = socketConnection()
+        try {
+          //Wait for Cache Data Loaded
+          await cacheDataLoaded
+          //listen on conversation event and take dicision to update or not
+          socket.on('conversation', (data) => {
+            updateCachedData((draft) => {
+              const conversation = draft.find((c) => c.id == data?.data?.id)
+
+              if (conversation?.id) {
+                conversation.message = data?.data?.message
+                conversation.timestamp = data?.data?.timestamp
+              } else {
+              }
+            })
+          })
+        } catch (error) {}
+
+        //Wait for cache entry removed if not in page close the connection
+        await cacheEntryRemoved
+        socket.close()
+      },
     }),
     getConversation: builder.query({
       query: ({ userEmail, participantEmail }) => ({
