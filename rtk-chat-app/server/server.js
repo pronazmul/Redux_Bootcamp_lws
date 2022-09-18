@@ -10,6 +10,28 @@ const io = require('socket.io')(server)
 global.io = io
 
 const router = jsonServer.router('db.json')
+
+/**
+ * @desc  Access on response and read request credentials. Emit socket event from SERVER
+ * @param {OBJECT} req
+ * @param {OBJECT} res
+ */
+router.render = (req, res) => {
+  const path = req.path
+  const method = req.method
+
+  //Check Credentials for conversations event:
+  if (
+    path.includes('/conversations') &&
+    (method === 'POST' || method === 'PATCH')
+  ) {
+    //Emit event
+    io.emit('conversation', {
+      data: res.locals.data,
+    })
+  }
+}
+
 const middlewares = jsonServer.defaults()
 const port = process.env.PORT || 9000
 
