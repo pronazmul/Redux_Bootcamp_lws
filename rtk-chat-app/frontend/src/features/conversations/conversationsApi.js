@@ -71,7 +71,7 @@ export const conversationsApi = apiSlice.injectEndpoints({
               (user) => user.email !== arg.senderEmail
             )
 
-            dispatch(
+            const res = await dispatch(
               messagesApi.endpoints.addMessage.initiate({
                 conversationId: conversation.data.id,
                 sender,
@@ -79,7 +79,16 @@ export const conversationsApi = apiSlice.injectEndpoints({
                 message: arg.data.message,
                 timestamp: arg.data.timestamp,
               })
+            ).unwrap()
+
+            //UPDATE MESSAGE CACHE PASSIMISTICALLY
+            let c_id = res.conversationId.toString()
+            dispatch(
+              apiSlice.util.updateQueryData('getMessages', c_id, (draft) => {
+                draft.push(res)
+              })
             )
+            //UPDATE MESSAGE CACHE PASSIMISTICALLY
           }
         } catch (error) {
           patchResult.undo()
