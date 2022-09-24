@@ -1,0 +1,69 @@
+{
+  "users": [
+    {
+      "email": "nazmul@gmail.com",
+      "password": "$2a$10$UY2KpapjQJgMV0Nvj1WT5eBRsDIitYIlV8yTu9SnJL.dbpM/5ZHkq",
+      "name": "Nazmul Huda",
+      "avatar": "https://avatars.githubusercontent.com/u/58470993",
+      "id": 1
+    },
+    {
+      "email": "sumit@gmail.com",
+      "password": "$2a$10$4BLrs7ETSALD42TkJZ..ZumvG27pigw/ldGt8T41IEK254Km3H69q",
+      "name": "Sumit Saha",
+      "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4",
+      "id": 2
+    },
+    {
+      "email": "jhankar@gmail.com",
+      "password": "$2a$10$hQVNr0Yem0.1..mNdaatvOIU.dkIyP47trClxrdhO1bqnZoMrK0M2",
+      "name": "Jhanker Mahabub",
+      "avatar": "https://avatars.githubusercontent.com/u/53802153?v=4",
+      "id": 3
+    },
+    {
+      "email": "traversy@gmail.com",
+      "password": "$2a$10$14x83T8mIwgcE7V4dqqkJeZnaVo5CqR82sADzwhyqmrXORiM2xOti",
+      "name": "Brad Traversy",
+      "avatar": "https://avatars.githubusercontent.com/u/5550850?v=4",
+      "id": 4
+    },
+    {
+      "email": "fayzul@gmail.com",
+      "password": "$2a$10$Tv8ZGtU1rASqfboonlIia.BspJ5Pojy4/.5YqDIoB1lN4uvHNB2zG",
+      "name": "Fayzul Karim",
+      "avatar": "https://avatars.githubusercontent.com/u/497812?v=4",
+      "id": 5
+    },
+    {
+      "email": "sunny@gmail.com",
+      "password": "$2a$10$DcTO5Ssy13uAsgRSf1M5nu5uHpTz0BhFkkuxC40E4wut8TP9NbS32",
+      "name": "Sunny Sungha",
+      "avatar": "https://avatars.githubusercontent.com/u/24712956?v=4",
+      "id": 6
+    },
+    {
+      "email": "adrian@gmail.com",
+      "password": "$2a$10$4E6Rfo.T47kNpkgHQ0..TOnoeBx4DQhMg5.1dD6PfUg1tNGCEBmvy",
+      "name": "Adrian Twrag",
+      "avatar": "https://avatars.githubusercontent.com/u/22957728?v=4",
+      "id": 7
+    },
+    {
+      "email": "tanvir@gmail.com",
+      "password": "$2a$10$hGtb6/gFWlHOB.oUz1VBJunoT6xH64TkV3vU0y8fKQRF8u8vsRJIW",
+      "name": "Tanvir Hasan",
+      "avatar": "https://avatars.githubusercontent.com/u/2250509?v=4",
+      "id": 8
+    },
+    {
+      "email": "hasin@gmail.com",
+      "password": "$2a$10$HBEDBpHjh77xs/u5IXTme.wwnml2ZE7UCZDPxOW67jNWfjTmgfG5C",
+      "name": "Hasin Hayder",
+      "avatar": "https://avatars.githubusercontent.com/u/490779?v=4",
+      "id": 9
+    }
+  ],
+  "teams": [],
+  "projects": []
+}

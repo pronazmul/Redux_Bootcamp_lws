@@ -28,6 +28,9 @@
 /rtk-chat-app/frontend/node_modules
 /rtk-chat-app/server/node_modules
 
+/rtk-project-manager/frontend
+/rtk-project-manager/server/node_modules
+/rtk-project-manager/html_template
 
 # testing
 /coverage

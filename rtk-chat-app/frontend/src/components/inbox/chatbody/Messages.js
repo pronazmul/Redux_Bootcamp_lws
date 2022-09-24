@@ -15,7 +15,6 @@ export default function Messages({ messages: data, totalCount, id }) {
   const dispatch = useDispatch()
 
   const fetchMore = () => {
-    console.log('fetched')
     setPage((current) => current + 1)
   }
 
@@ -34,8 +33,6 @@ export default function Messages({ messages: data, totalCount, id }) {
       setHasMore(more)
     }
   }, [totalCount, page])
-
-  console.log({ page, totalCount, messages })
 
   return (
     <div

@@ -1,0 +1,15 @@
+{
+  "name": "lws-json-server-todos",
+  "description": "Project Manager App",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Nazmul Huda",
+  "dependencies": {
+    "json-server": "^0.17.0",
+    "json-server-auth": "^2.1.0"
+  }
+}
