@@ -1,13 +1,15 @@
-# Chat Application with Advance Redux RTK Query
+# Project Manager App
 
-### Demo user 1:
+### Users:
 
-- username: `mhnazmul48@gmail.com`
-- password: `1234`
-
-### Demo user 2:
-
-- username: `sumit@learnwithsumit.com`
-- password: `1234`
+- `sumit@gmail.com`
+- `hasin@gmail.com`
+- `jhankar@gmail.com`
+- `fayzul@gmail.com`
+- `traversy@gmail.com`
+- `nazmul@gmail.com`
+- `sunny@gmail.com`
+- `adrian@gmail.com`
+- `tanvir@gmail.com`
 
 > common password `1234` for all account
