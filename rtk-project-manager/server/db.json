@@ -64,6 +64,37 @@
       "id": 9
     }
   ],
-  "teams": [],
+  "teams": [
+    {
+      "name": "development",
+      "color": "green",
+      "description": "Hello there we are Development team",
+      "assigned": [
+        "nazmul@gmail.com"
+      ],
+      "timestamp": 1664036851,
+      "id": 1
+    },
+    {
+      "name": "design",
+      "color": "green",
+      "description": "Hello there we are Development team",
+      "assigned": [
+        "sumit@gmail.com"
+      ],
+      "timestamp": 1664036929,
+      "id": 2
+    },
+    {
+      "name": "app",
+      "color": "green",
+      "description": "Hello there we are Development team",
+      "assigned": [
+        "jhankar@gmail.com"
+      ],
+      "timestamp": 1664036937,
+      "id": 3
+    }
+  ],
   "projects": []
 }
