@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import logoImage from '../assets/lws-logo-light.svg'
+import logoImage from '../assets/logo.png'
 import Input from '../components/inputs/Input'
 import { useFormik } from 'formik'
 import InputPassword from '../components/inputs/InputPassword'

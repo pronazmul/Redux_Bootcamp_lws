@@ -4,7 +4,7 @@ import useAuth from './../../hooks/useAuth'
 
 const PublicRoute = ({ children }) => {
   const auth = useAuth()
-  return !auth ? children : <Navigate to='/teams' />
+  return !auth ? children : <Navigate to='/team' />
 }
 
 export default PublicRoute

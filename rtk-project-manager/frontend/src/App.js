@@ -5,7 +5,8 @@ import Loader from './components/ui/Loader'
 import NotFound from './components/ui/NotFound'
 import useAuthCheck from './hooks/useAuthCheck'
 import Login from './pages/Login'
-import Teams from './pages/Teams'
+import Project from './pages/Project'
+import Team from './pages/Team'
 
 function App() {
   const authChecked = useAuthCheck()
@@ -24,10 +25,18 @@ function App() {
           }
         />
         <Route
-          path='/teams'
+          path='/team'
           element={
             <PrivateRoute>
-              <Teams />
+              <Team />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/project'
+          element={
+            <PrivateRoute>
+              <Project />
             </PrivateRoute>
           }
         />
