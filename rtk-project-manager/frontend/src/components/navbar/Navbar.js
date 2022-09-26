@@ -12,7 +12,7 @@ const Navbar = ({ search }) => {
       <img src={Logo} alt='Brand Logo' className='h-10 w-10' />
       {search && (
         <input
-          class='flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring'
+          className='flex items-center h-10 px-4 ml-10 text-sm bg-gray-200 rounded-full focus:outline-none focus:ring'
           type='search'
           placeholder='Search for anything…'
         />
