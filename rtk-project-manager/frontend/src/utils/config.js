@@ -6,3 +6,5 @@ export const projectStatus = [
   'blocked',
   'done',
 ]
+
+export const ITEM_TYPE = 'ITEM'

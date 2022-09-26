@@ -1,39 +1,30 @@
 import moment from 'moment'
 import React from 'react'
 import { useDrag } from 'react-dnd'
+import { useRef } from 'react'
+import { ITEM_TYPE } from '../../utils/config'
 
-const ProjectListItem = ({ project, projectType, onDropProject, editable }) => {
+const ProjectListItem = ({ project: item, editable }) => {
   const {
     id,
     title,
     timestamp,
     team: { name },
     creator: { avatar, name: cName },
-  } = project
+  } = item
 
-  //DND Functionalities
-  const [{ isDragging }, dragRef] = useDrag({
-    item: {
-      type: projectType,
-      id,
-    },
-    end: (item, monitor) => {
-      const dropResult = monitor.getDropResult()
-
-      if (item?.id && dropResult?.dropEffect === 'move') {
-        onDropProject(item)
-      }
-    },
+  const [{ isDrugging }, drag] = useDrag({
+    item: { type: ITEM_TYPE, ...item },
     collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
+      isDrugging: monitor.isDragging(),
     }),
   })
 
   return (
     <div
-      className='relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100'
+      ref={drag}
+      className={`relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer group hover:bg-opacity-100`}
       draggable='true'
-      ref={dragRef}
     >
       {editable && (
         <button className='absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex'>
