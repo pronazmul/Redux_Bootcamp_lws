@@ -3,7 +3,7 @@ import moment from 'moment'
 
 const TeamItem = ({ team }) => {
   const { name, color, description, timestamp } = team
-
+  const colorClassName = `text-${color}-500 bg-${color}-100`
   return (
     <div
       className='relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100'
@@ -20,7 +20,7 @@ const TeamItem = ({ team }) => {
         </svg>
       </button>
       <span
-        className={`flex items-center h-6 px-3 text-xs font-semibold  rounded-full capitalize text-${color}-500 bg-${color}-100`}
+        className={`flex items-center h-6 px-3 text-xs font-semibold  rounded-full capitalize ${colorClassName}`}
       >
         {name}
       </span>

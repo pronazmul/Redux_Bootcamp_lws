@@ -14,6 +14,7 @@ root.render(
   <>
     <Provider store={store}>
       <Toaster position='top-right' reverseOrder={false} />
+
       <App />
     </Provider>
   </>

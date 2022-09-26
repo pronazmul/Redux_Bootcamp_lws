@@ -31,7 +31,7 @@
 /rtk-project-manager/frontend/node_modules
 /rtk-project-manager/server/node_modules
 /rtk-project-manager/html_template
-
+/rtk-project-manager/test.js
 # testing
 /coverage
 
