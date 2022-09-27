@@ -1,15 +1,8 @@
 import React from 'react'
 
-const Input = ({
-  title,
-  value,
-  error,
-  className = '',
-  label,
-  ...attributes
-}) => {
+const ColorInput = ({ title, value, error, label, ...attributes }) => {
   return (
-    <div className='space-y-1 text-left'>
+    <div className='space-x-2 text-left flex  items-center mt-2 '>
       {label && (
         <label className='text-sm uppercase font-semibold text-gray-500 ml-2'>
           {' '}
@@ -20,12 +13,11 @@ const Input = ({
         placeholder={title}
         value={value}
         {...attributes}
-        className={`input ${className}
-      }`}
+        className=' w-2/5 rounded-lg  p-0.5'
       />
       {value && error && <span className='text-xs text-red-400'>{error}</span>}
     </div>
   )
 }
 
-export default Input
+export default ColorInput

@@ -7,14 +7,12 @@ const TeamItem = ({ team }) => {
   const [modal, setModal] = React.useState(false)
   const { name, color, description, timestamp } = team
 
-  const colorClassName = `text-${color}-500 bg-${color}-100`
   return (
     <div
       className='relative flex flex-col items-start p-4 mt-3 bg-white rounded-lg cursor-pointer bg-opacity-90 group hover:bg-opacity-100'
       draggable='true'
     >
-      {' '}
-      <button className='absolute top-0 right-0 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex'>
+      <button className='absolute top-0 right-0 flex items-center justify-center  w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex'>
         <Dropdown options={teamOptions} setOption={setModal}>
           <svg
             className='w-4 h-4 fill-current'
@@ -26,11 +24,11 @@ const TeamItem = ({ team }) => {
           </svg>
         </Dropdown>
       </button>
-      <span
-        className={`flex items-center h-6 px-3 text-xs font-semibold  rounded-full capitalize ${colorClassName}`}
+      <div
+        className={`flex items-center h-6 px-3 text-xs font-semibold rounded-full capitalize text-[${color}] bg-[${color}] bg-opacity-20`}
       >
         {name}
-      </span>
+      </div>
       <h4 className='mt-3 text-sm font-medium'>{description}</h4>
       <div className='flex items-center w-full mt-3 text-xs font-medium text-gray-400'>
         <div className='flex items-center'>

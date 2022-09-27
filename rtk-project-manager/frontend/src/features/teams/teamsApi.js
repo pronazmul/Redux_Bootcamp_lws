@@ -1,4 +1,4 @@
-import { apiSlice } from '../api/apiSlice'
+import { apiSlice } from './../api/apiSlice'
 
 export const teamsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -15,11 +15,23 @@ export const teamsApi = apiSlice.injectEndpoints({
       }),
     }),
     addTeam: builder.mutation({
-      query: ({ data }) => ({
+      query: ({ email, data }) => ({
         url: `/teams`,
         method: 'POST',
         body: data,
       }),
+      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+        try {
+          const team = await queryFulfilled
+          dispatch(
+            apiSlice.util.updateQueryData('getTeams', arg.email, (draft) => {
+              draft.push(team.data)
+            })
+          )
+        } catch (error) {
+          console.log(error)
+        }
+      },
     }),
     editTeam: builder.mutation({
       query: ({ id, data }) => ({

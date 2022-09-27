@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 /**
  * @desc Custom Modal
@@ -46,7 +46,7 @@ const Modal = ({ open, modalHandler, children }) => {
               leaveTo='opacity-0 scale-95'
             >
               <div className='inline-block w-full max-w-lg my-8 overflow-hidden align-middle transition-all transform'>
-                {children}
+                {React.cloneElement(children, { modalHandler })}
               </div>
             </Transition.Child>
           </div>

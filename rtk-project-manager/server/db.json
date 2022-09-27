@@ -66,44 +66,14 @@
   ],
   "teams": [
     {
-      "name": "design",
-      "color": "yellow",
-      "description": "Hello there we are Design team",
+      "name": "fdlfkj",
+      "description": "fdklfj",
+      "color": "#ed64a6",
       "assigned": [
-        "jhankar@gmail.com"
+        "traversy@gmail.com"
       ],
-      "timestamp": 1664121488,
+      "timestamp": 1664289174620,
       "id": 1
-    },
-    {
-      "name": "development",
-      "color": "green",
-      "description": "Hello there we are Development team",
-      "assigned": [
-        "nazmul@gmail.com"
-      ],
-      "timestamp": 1664121513,
-      "id": 2
-    },
-    {
-      "name": "app",
-      "color": "green",
-      "description": "Hello there we are App Development team",
-      "assigned": [
-        "nazmul@gmail.com"
-      ],
-      "timestamp": 1664121537,
-      "id": 3
-    },
-    {
-      "name": "ux/ui",
-      "color": "green",
-      "description": "Hello there we are App UX/UI team",
-      "assigned": [
-        "nazmul@gmail.com"
-      ],
-      "timestamp": 1664121557,
-      "id": 4
     }
   ],
   "projects": [
