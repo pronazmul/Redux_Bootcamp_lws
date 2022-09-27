@@ -21,12 +21,25 @@ export const messagesApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    editProject: builder.mutation({
+    updateProject: builder.mutation({
       query: ({ id, data }) => ({
         url: `/projects/${id}`,
         method: 'PATCH',
         body: data,
       }),
+      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+        try {
+          const project = await queryFulfilled
+          dispatch(
+            apiSlice.util.updateQueryData('getProjects', undefined, (draft) => {
+              const index = draft.findIndex((item) => item.id == arg?.id)
+              draft.splice(index, 1, project.data)
+            })
+          )
+        } catch (error) {
+          console.log(error)
+        }
+      },
     }),
   }),
 })
@@ -35,5 +48,5 @@ export const {
   useGetProjectsQuery,
   useGetProjectQuery,
   useAddProjectMutation,
-  useEditProjectMutation,
+  useUpdateProjectMutation,
 } = messagesApi
