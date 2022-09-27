@@ -1,7 +1,6 @@
 import moment from 'moment'
 import React from 'react'
 import { useDrag } from 'react-dnd'
-import { useRef } from 'react'
 import { ITEM_TYPE } from '../../utils/config'
 
 const ProjectListItem = ({ project: item, editable }) => {
