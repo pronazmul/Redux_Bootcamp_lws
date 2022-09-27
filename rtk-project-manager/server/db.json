@@ -66,14 +66,24 @@
   ],
   "teams": [
     {
-      "name": "fdlfkj",
-      "description": "fdklfj",
-      "color": "#ed64a6",
+      "name": "development",
+      "description": "welcome from development team",
+      "color": "indigo",
       "assigned": [
         "traversy@gmail.com"
       ],
-      "timestamp": 1664289174620,
+      "timestamp": 1664293527917,
       "id": 1
+    },
+    {
+      "name": "design",
+      "description": "Welcome from Design team",
+      "color": "indigo",
+      "assigned": [
+        "traversy@gmail.com"
+      ],
+      "timestamp": 1664293551546,
+      "id": 2
     }
   ],
   "projects": [

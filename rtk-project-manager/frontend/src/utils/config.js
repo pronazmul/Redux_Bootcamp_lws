@@ -12,19 +12,35 @@ export const ITEM_TYPE = 'ITEM'
 // Data TAble Dropdown
 export const teamOptions = [
   {
-    id: 1,
-    name: 'view',
-    icon: 'fas fa-eye',
-  },
-  {
     id: 2,
-    name: 'edit',
-    icon: 'fas fa-edit',
+    name: 'add',
+    icon: 'fas fa-user-plus',
   },
   {
     id: 3,
     name: 'delete',
     icon: 'far fa-trash-alt',
+  },
+]
+
+export const profileDropDown = [
+  {
+    id: 1,
+    title: 'Teams',
+    sublink: '/team',
+    icon: 'fas fa-users',
+  },
+  {
+    id: 1,
+    title: 'Projects',
+    sublink: '/project',
+    icon: 'fa fa-project-diagram',
+  },
+  {
+    id: 2,
+    title: 'Logout',
+    sublink: '?tab=logout',
+    icon: 'fas fa-power-off',
   },
 ]
 
@@ -46,14 +62,4 @@ export const usersCredentials = [
   },
 ]
 
-export const colors = [
-  '#2196F3',
-  '#009688',
-  '#9C27B0',
-  '#FFEB3B',
-  '#afbbc9',
-  '#4CAF50',
-  '#2d3748',
-  '#f56565',
-  '#ed64a6',
-]
+export const colors = ['red', 'orange', 'indigo']

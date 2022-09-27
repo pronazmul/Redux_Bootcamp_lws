@@ -1,11 +1,25 @@
 import React from 'react'
 import Logo from '../../assets/logo.png'
-import { useSelector } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
+import DropDownLink from '../ui/DropDownLink'
+import { profileDropDown } from '../../utils/config'
+import { userLoggedOut } from '../../features/auth/authSlice'
 
 const Navbar = ({ search }) => {
   const { user } = useSelector((state) => state.auth)
   const { pathname } = useLocation()
+
+  const [searchParams, setSearchParams] = useSearchParams()
+  const dispatch = useDispatch()
+  let logout = searchParams.get('tab')
+
+  React.useEffect(() => {
+    if (logout === 'logout') {
+      localStorage.removeItem('auth')
+      dispatch(userLoggedOut())
+    }
+  }, [logout, dispatch])
 
   return (
     <div className='flex items-center flex-shrink-0 w-full h-16 px-10 bg-white bg-opacity-75'>
@@ -35,9 +49,11 @@ const Navbar = ({ search }) => {
           Team
         </Link>
       </div>
-      <button className='flex items-center justify-center w-8 h-8 ml-auto overflow-hidden rounded-full cursor-pointer'>
-        <img src={user?.avatar} alt={user?.name} />
-      </button>
+      <DropDownLink data={profileDropDown} className='ml-auto'>
+        <button className='flex items-center justify-center w-8 h-8  overflow-hidden rounded-full cursor-pointer'>
+          <img src={user?.avatar} alt={user?.name} />
+        </button>
+      </DropDownLink>
     </div>
   )
 }

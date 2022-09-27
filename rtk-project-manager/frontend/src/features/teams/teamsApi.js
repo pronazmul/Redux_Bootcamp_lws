@@ -40,6 +40,25 @@ export const teamsApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    deleteTeam: builder.mutation({
+      query: ({ id, email }) => ({
+        url: `teams/${id}`,
+        method: 'DELETE',
+      }),
+      async onQueryStarted({ email, id }, { queryFulfilled, dispatch }) {
+        try {
+          await queryFulfilled
+          dispatch(
+            apiSlice.util.updateQueryData('getTeams', email, (draft) => {
+              const index = draft.findIndex((item) => item.id == id)
+              draft.splice(index, 1)
+            })
+          )
+        } catch (error) {
+          console.log(error)
+        }
+      },
+    }),
   }),
 })
 
@@ -48,4 +67,5 @@ export const {
   useGetTeamQuery,
   useAddTeamMutation,
   useEditTeamMutation,
+  useDeleteTeamMutation,
 } = teamsApi

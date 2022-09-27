@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import Input from './../inputs/Input'
 import { Formik } from 'formik'
-import ColorInput from './../inputs/ColorInput'
 import { useSelector } from 'react-redux'
 import { useAddTeamMutation } from '../../features/teams/teamsApi'
 import toast from 'react-hot-toast'
+import { colors } from './../../utils/config'
 
 const AddTeam = ({ modalHandler }) => {
   const { user } = useSelector((state) => state.auth)
@@ -35,12 +35,12 @@ const AddTeam = ({ modalHandler }) => {
         initialValues={{
           name: '',
           description: '',
-          color: '#ed64a6',
+          color: colors[0],
           assigned: [],
         }}
         onSubmit={addTeamHandler}
       >
-        {({ handleChange, values, handleSubmit }) => (
+        {({ handleChange, values, handleSubmit, setFieldValue }) => (
           <form className='space-y-6' onSubmit={handleSubmit}>
             <div className='space-y-2'>
               <Input
@@ -63,16 +63,24 @@ const AddTeam = ({ modalHandler }) => {
                 label
                 required
               />
-              <ColorInput
-                title='Select Color'
-                name='color'
-                type='color'
-                value={values.color}
-                onChange={handleChange}
-                className='rounded-md'
-                label
-                required
-              />
+              <div className='space-y-1 text-left'>
+                <label className='text-sm uppercase font-semibold text-gray-500 ml-2'>
+                  Select Color
+                </label>
+                <div className='flex space-x-2 justify-center'>
+                  {colors.map((c, idx) => {
+                    return (
+                      <span
+                        onClick={() => setFieldValue('color', c)}
+                        key={idx}
+                        className={`bg-${c}-500 h-7 w-7 rounded-full cursor-pointer ${
+                          values.color === c && ` border-2 border-gray-300`
+                        }`}
+                      ></span>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
 
             <div>
