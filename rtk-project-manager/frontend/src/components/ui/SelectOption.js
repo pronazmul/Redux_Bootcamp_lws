@@ -22,7 +22,7 @@ const SelectOption = ({
       <select className={`input ${className}`} value={value} {...attributes}>
         <option value=''>Select One</option>
         {options.map((option) => (
-          <option key={option[optionValue]} value={option.value}>
+          <option key={option[optionValue]} value={option[optionValue]}>
             {option[optionTitle]}
           </option>
         ))}

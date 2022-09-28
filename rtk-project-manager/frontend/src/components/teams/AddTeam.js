@@ -9,6 +9,7 @@ import { colors } from './../../utils/config'
 const AddTeam = ({ modalHandler }) => {
   const { user } = useSelector((state) => state.auth)
   const [addTeam, { isSuccess, isError }] = useAddTeamMutation()
+
   function addTeamHandler(values, { resetForm }) {
     values.assigned.push(user?.email)
     values.timestamp = Date.now()
@@ -68,17 +69,15 @@ const AddTeam = ({ modalHandler }) => {
                   Select Color
                 </label>
                 <div className='flex space-x-2 justify-center'>
-                  {colors.map((c, idx) => {
-                    return (
-                      <span
-                        onClick={() => setFieldValue('color', c)}
-                        key={idx}
-                        className={`bg-${c}-500 h-7 w-7 rounded-full cursor-pointer ${
-                          values.color === c && ` border-2 border-gray-300`
-                        }`}
-                      ></span>
-                    )
-                  })}
+                  {colors.map((c, idx) => (
+                    <span
+                      onClick={() => setFieldValue('color', c)}
+                      key={idx}
+                      className={`${c} h-7 w-7 rounded-full cursor-pointer ${
+                        values.color === c && ` border-2 border-gray-300 `
+                      }`}
+                    ></span>
+                  ))}
                 </div>
               </div>
             </div>

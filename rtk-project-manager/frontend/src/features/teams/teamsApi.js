@@ -34,11 +34,24 @@ export const teamsApi = apiSlice.injectEndpoints({
       },
     }),
     editTeam: builder.mutation({
-      query: ({ id, data }) => ({
+      query: ({ email, id, data }) => ({
         url: `/teams/${id}`,
         method: 'PATCH',
         body: data,
       }),
+      async onQueryStarted({ email, id }, { queryFulfilled, dispatch }) {
+        try {
+          const team = await queryFulfilled
+          dispatch(
+            apiSlice.util.updateQueryData('getTeams', email, (draft) => {
+              const index = draft.findIndex((item) => item.id == id)
+              draft.splice(index, 1, team.data)
+            })
+          )
+        } catch (error) {
+          console.log(error)
+        }
+      },
     }),
     deleteTeam: builder.mutation({
       query: ({ id, email }) => ({

@@ -68,9 +68,12 @@
     {
       "name": "development",
       "description": "welcome from development team",
-      "color": "indigo",
+      "color": "text-rose-500 bg-rose-500",
       "assigned": [
-        "traversy@gmail.com"
+        "traversy@gmail.com",
+        "sunny@gmail.com",
+        "fayzul@gmail.com",
+        "tanvir@gmail.com"
       ],
       "timestamp": 1664293527917,
       "id": 1
@@ -78,12 +81,24 @@
     {
       "name": "design",
       "description": "Welcome from Design team",
-      "color": "indigo",
+      "color": "text-cyan-500 bg-cyan-500",
       "assigned": [
-        "traversy@gmail.com"
+        "traversy@gmail.com",
+        "jhankar@gmail.com"
       ],
       "timestamp": 1664293551546,
       "id": 2
+    },
+    {
+      "name": "copyright",
+      "description": "Here is copyright section",
+      "color": "text-indigo-500 bg-indigo-500",
+      "assigned": [
+        "traversy@gmail.com",
+        "adrian@gmail.com"
+      ],
+      "timestamp": 1664304056511,
+      "id": 3
     }
   ],
   "projects": [
@@ -92,7 +107,7 @@
       "team": {
         "id": 1,
         "name": "development",
-        "color": "green"
+        "color": "text-rose-500 bg-rose-500"
       },
       "creator": {
         "id": 1,
@@ -109,7 +124,7 @@
       "team": {
         "id": 1,
         "name": "design",
-        "color": "green"
+        "color": "text-cyan-500 bg-cyan-500"
       },
       "creator": {
         "id": 1,
@@ -120,73 +135,6 @@
       "timestamp": 1664125200,
       "id": 2,
       "type": "ITEM"
-    },
-    {
-      "title": "Docotrs Portal",
-      "team": {
-        "id": 1,
-        "name": "app",
-        "color": "indigo"
-      },
-      "creator": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4"
-      },
-      "status": "review",
-      "timestamp": 1664125588,
-      "id": 3,
-      "type": "ITEM"
-    },
-    {
-      "title": "Wather App",
-      "team": {
-        "id": 1,
-        "name": "ux/ui",
-        "color": "indigo"
-      },
-      "creator": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4"
-      },
-      "status": "doing",
-      "timestamp": 1664125621,
-      "id": 4,
-      "type": "ITEM"
-    },
-    {
-      "title": "Online Classroom",
-      "team": {
-        "id": 1,
-        "name": "development",
-        "color": "indigo"
-      },
-      "creator": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4"
-      },
-      "status": "blocked",
-      "timestamp": 1664125671,
-      "id": 5,
-      "type": "ITEM"
-    },
-    {
-      "title": "Blog Application",
-      "team": {
-        "id": 1,
-        "name": "design",
-        "color": "indigo"
-      },
-      "creator": {
-        "id": 1,
-        "name": "Sumit Saha",
-        "avatar": "https://avatars.githubusercontent.com/u/73503432?v=4"
-      },
-      "status": "done",
-      "timestamp": 1664125756,
-      "id": 6
     }
   ]
 }

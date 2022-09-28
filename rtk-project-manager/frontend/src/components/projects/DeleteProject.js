@@ -1,19 +1,17 @@
 import React from 'react'
 import toast from 'react-hot-toast'
-import { useSelector } from 'react-redux'
-import { useDeleteTeamMutation } from '../../features/teams/teamsApi'
+import { useDeleteProjectMutation } from '../../features/projects/projectsApi'
 
-const DeleteTeam = ({ modalHandler, id }) => {
-  const { user } = useSelector((state) => state.auth)
-  const [deleteTeam, { isSuccess, isError }] = useDeleteTeamMutation()
+const DeleteProject = ({ modalHandler, id }) => {
+  const [deleteProject, { isSuccess, isError }] = useDeleteProjectMutation()
 
   function deleteHandler() {
-    deleteTeam({ id, email: user?.email })
+    deleteProject(id)
   }
 
   React.useEffect(() => {
     if (isSuccess) {
-      toast.success('Delete')
+      toast.success('Deleted!')
       modalHandler()
     }
     if (isError) {
@@ -54,4 +52,4 @@ const DeleteTeam = ({ modalHandler, id }) => {
   )
 }
 
-export default DeleteTeam
+export default DeleteProject

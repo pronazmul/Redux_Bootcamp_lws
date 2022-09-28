@@ -1,0 +1,18 @@
+# dependencies
+/frontend/node_modules
+/server/node_modules
+
+# production
+/frontend/build
+
+# misc
+/frontend/.DS_Store
+/frontend/.vscode
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*

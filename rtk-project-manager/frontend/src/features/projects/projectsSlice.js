@@ -1,12 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {}
+const initialState = {
+  filtered: [],
+}
 
 const projectsSlice = createSlice({
   name: 'projects',
   initialState,
-  reducers: {},
+  reducers: {
+    searchProject: (state, action) => {
+      state.filtered = action.payload
+    },
+  },
 })
 
-export const {} = projectsSlice.actions
+export const { searchProject } = projectsSlice.actions
 export default projectsSlice.reducer

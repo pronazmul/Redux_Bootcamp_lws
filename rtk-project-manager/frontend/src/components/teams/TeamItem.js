@@ -4,9 +4,12 @@ import Dropdown from '../ui/Dropdown'
 import { teamOptions } from './../../utils/config'
 import Modal from './../ui/Modal'
 import DeleteTeam from './DeleteTeam'
+import AddUser from './AddUser'
+import { useGetUsersQuery } from '../../features/users/usersApi'
 
 const TeamItem = ({ team }) => {
   const { name, color, description, timestamp } = team
+  const { data: users = [] } = useGetUsersQuery()
 
   const [option, setOption] = React.useState('')
   const [deleteModal, setDeleteModal] = React.useState(false)
@@ -17,14 +20,23 @@ const TeamItem = ({ team }) => {
     if (option === 'add') setAddUserModal(true)
   }, [option])
 
+  function handleClose() {
+    setOption('')
+    setAddUserModal(false)
+    setDeleteModal(false)
+  }
+
   return (
     <>
       {deleteModal && (
-        <Modal
-          open={deleteModal}
-          modalHandler={() => setDeleteModal(!deleteModal)}
-        >
+        <Modal open={deleteModal} modalHandler={handleClose}>
           <DeleteTeam id={team.id} />
+        </Modal>
+      )}
+
+      {addUserModal && (
+        <Modal open={addUserModal} modalHandler={handleClose}>
+          <AddUser team={team} />
         </Modal>
       )}
 
@@ -45,12 +57,12 @@ const TeamItem = ({ team }) => {
           </Dropdown>
         </button>
         <div
-          className={`flex items-center h-6 px-3 text-xs font-semibold rounded-full capitalize  bg-${color}-200 text-${color}-600`}
+          className={`flex items-center h-6 px-3 text-xs font-semibold rounded-full capitalize  ${color} bg-opacity-20`}
         >
           {name}
         </div>
         <h4 className='mt-3 text-sm font-medium'>{description}</h4>
-        <div className='flex items-center w-full mt-3 text-xs font-medium text-gray-400'>
+        <div className='flex items-center w-full mt-3 text-xs font-medium text-gray-400 relative'>
           <div className='flex items-center'>
             <svg
               className='w-4 h-4 text-gray-300 fill-current'
@@ -67,6 +79,19 @@ const TeamItem = ({ team }) => {
             <span className='ml-1 leading-none'>
               {moment(timestamp).format('ll')}
             </span>
+
+            <div className='absolute flex -space-x-2 right-1'>
+              {users.length &&
+                users
+                  .filter((user) => team.assigned.includes(user.email))
+                  .map((user) => (
+                    <img
+                      class='w-6 h-6 rounded-full'
+                      src={user?.avatar}
+                      alt={user?.name}
+                    />
+                  ))}
+            </div>
           </div>
         </div>
       </div>

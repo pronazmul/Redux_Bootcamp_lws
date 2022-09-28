@@ -1,5 +1,4 @@
 import React from 'react'
-import { demoProjects } from '../../utils/data'
 import ProjectListHeader from './ProjectListHeader'
 import ProjectListItem from './ProjectListItem'
 import { projectStatus } from '../../utils/config'
